@@ -1,32 +1,26 @@
-
+package View;
+import Model.*;
 import java.util.*;
+import javafx.scene.layout.HBox;
 
 /**
  * 
  */
 public class RefrigeradoraView {
-
+    public Refrigeradora Model;
+    public HBox Pane;
     /**
      * Default constructor
      */
     public RefrigeradoraView() {
     }
-
-    /**
-     * 
-     */
-    public Refrigeradora Model;
-
-    /**
-     * 
-     */
-    public HBox Pane;
+    
 
 
     /**
      * @param model
      */
-    public void RefrigeradoraView(void model) {
+    public void RefrigeradoraView(Refrigeradora model) {
         // TODO implement here
     }
 
