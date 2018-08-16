@@ -12,4 +12,9 @@ public class Indurama extends Marca {
     public Indurama() {
     }
 
+    @Override
+    public void colocarMarca(LineaBlanca la) {
+        la.setMarca("Indurama");
+    }
+
 }

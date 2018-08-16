@@ -12,4 +12,9 @@ public class Durex extends Marca {
     public Durex() {
     }
 
+    @Override
+    public void colocarMarca(LineaBlanca la) {
+        la.setMarca("Durex");
+    }
+
 }

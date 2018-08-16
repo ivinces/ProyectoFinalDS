@@ -8,18 +8,13 @@ public class CrearLineaBlanca {
 
     /**
      * Default constructor
-     */
-    public CrearLineaBlanca() {
-    }
-
-
-
-
-    /**
      * @param LineaBlancaAF
      */
-    public void CrearLineaBlanca(LineaBlancaAF LineaBlancaAF) {
-        // TODO implement here
+    public CrearLineaBlanca(LineaBlancaAF LineaBlancaAF) {
+        Marca marca=LineaBlancaAF.AsignarMarca();
+        LineaBlanca producto=LineaBlancaAF.CrearArticulo();
+        marca.colocarMarca(producto);
     }
+
 
 }
