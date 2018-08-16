@@ -10,6 +10,7 @@ public class iGerente {
      * Default constructor
      */
     public iGerente() {
+        
     }
 
 }

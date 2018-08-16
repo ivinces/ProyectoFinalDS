@@ -6,14 +6,14 @@ import javafx.scene.layout.HBox;
 /**
  * 
  */
-public class CotizaciónView {
+public class CotizacionView {
     public Cotizacion Model;
     public HBox Pane;
     
     /**
      * Default constructor
      */
-    public CotizaciónView() {
+    public CotizacionView() {
     }
 
 

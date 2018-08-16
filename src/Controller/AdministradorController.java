@@ -1,6 +1,6 @@
 package Controller;
-import view.AdministradorView;
-import model.iAdministrador;
+import View.AdministradorView;
+import Model.iAdministrador;
 import java.util.*;
 
 /**

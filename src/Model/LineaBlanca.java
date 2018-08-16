@@ -1,4 +1,4 @@
-package model;
+package Model;
 import java.util.*;
 
 /**
@@ -6,5 +6,4 @@ import java.util.*;
  */
 public abstract class LineaBlanca {
     
-
 }

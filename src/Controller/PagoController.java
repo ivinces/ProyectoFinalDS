@@ -1,7 +1,7 @@
-package controller;
+package Controller;
 import java.util.*;
-import model.*;
-import view.*;
+import Model.*;
+import View.*;
 /**
  * 
  */
@@ -9,7 +9,7 @@ public class PagoController {
    
     public Pagos Model;
 
-    public PagosView View;
+    public PagoView View;
     /**
      * Default constructor
      */
@@ -20,7 +20,7 @@ public class PagoController {
      * @param model 
      * @param view
      */
-    public void PagoController(Pagos model, PagosView view) {
+    public void PagoController(Pagos model, PagoView view) {
         // TODO implement here
     }
 

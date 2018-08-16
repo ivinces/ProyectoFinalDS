@@ -1,7 +1,7 @@
-package controller;
+package Controller;
 import java.util.*;
-import model.Busquedas;
-import view.BusquedaView;
+import Model.Busqueda;
+import View.BusquedaView;
 /**
  * 
  */
@@ -9,7 +9,7 @@ public class BusquedaController {
     /**
      * 
      */
-    public Busquedas Model;
+    public Busqueda Model;
 
     /**
      * 
@@ -25,7 +25,7 @@ public class BusquedaController {
      * @param model 
      * @param view
      */
-    public void BusquedaController(Busquedas model, BusquedaView view) {
+    public void BusquedaController(Busqueda model, BusquedaView view) {
         // TODO implement here
     }
 

@@ -1,7 +1,7 @@
-package controller;
+package Controller;
 import java.util.*;
-import model.*;
-import view.*;
+import Model.*;
+import View.*;
 /**
  * 
  */

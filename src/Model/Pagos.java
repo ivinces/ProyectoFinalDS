@@ -10,6 +10,7 @@ public class Pagos {
      * Default constructor
      */
     public Pagos() {
+        
     }
 
 

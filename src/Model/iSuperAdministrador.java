@@ -10,6 +10,7 @@ public class iSuperAdministrador {
      * Default constructor
      */
     public iSuperAdministrador() {
+        
     }
 
 }

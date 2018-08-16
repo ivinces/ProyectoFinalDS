@@ -1,7 +1,7 @@
 package Controller;
 import java.util.*;
-import model.LineaBlanca;
-import view.LineaBlancaView;
+import Model.LineaBlanca;
+import View.LineaBlancaView;
 /**
  * 
  */

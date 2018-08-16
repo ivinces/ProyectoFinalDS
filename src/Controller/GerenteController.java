@@ -1,7 +1,7 @@
 package controller;
 import java.util.*;
-import model.iGerente;
-import view.GerenteView;
+import Model.iGerente;
+import View.GerenteView;
 
 public class GerenteController {
     /**

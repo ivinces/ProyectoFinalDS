@@ -13,5 +13,7 @@ public class iVendedor {
     public boolean ocupado;
     public iVendedor next;
     public iVendedor(){
+        this.next=new iVendedor();
     }
+    
 }

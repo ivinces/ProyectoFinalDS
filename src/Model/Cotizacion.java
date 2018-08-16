@@ -1,4 +1,4 @@
-package model;
+package Model;
 import java.util.*;
 
 /**
@@ -10,6 +10,7 @@ public class Cotizacion {
      * Default constructor
      */
     public Cotizacion() {
+        
     }
 
 }

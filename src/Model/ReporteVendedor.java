@@ -12,7 +12,7 @@ public class ReporteVendedor extends Reportes {
      * Default constructor
      */
     public ReporteVendedor() {
-        this.articulo= new LineaBlanca();
+        this.articulo= new LineaBlanca() {};
         this.cantidad=0;
         this.ventasTotalesUSD=0;
     }

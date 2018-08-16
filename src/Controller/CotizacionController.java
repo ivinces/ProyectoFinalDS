@@ -1,7 +1,7 @@
-package controller;
+package Controller;
 import java.util.*;
-import model.Cotizacion;
-import view.CotizacionView;
+import Model.Cotizacion;
+import View.CotizacionView;
 /**
  * 
  */

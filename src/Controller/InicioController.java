@@ -1,7 +1,7 @@
-package controller;
+package Controller;
 import java.util.*;
-import model.*;
-import view.*;
+import Model.*;
+import View.*;
 /**
  * 
  */
@@ -9,7 +9,7 @@ public class InicioController {
     /**
      * 
      */
-    public Usuarios Model;
+    public iUsuarios Model;
 
     /**
      * 
@@ -25,14 +25,14 @@ public class InicioController {
      * @param model 
      * @param view
      */
-    public void InicioController(Usuarios model, Inicio view) {
+    public void InicioController(iUsuarios model, Inicio view) {
         // TODO implement here
     }
 
     /**
      * @param model
      */
-    public void VerificarUsuario(Usuarios model) {
+    public void VerificarUsuario(iUsuarios model) {
         // TODO implement here
     }
 
