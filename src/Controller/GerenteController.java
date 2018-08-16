@@ -1,17 +1,9 @@
-
+package controller;
 import java.util.*;
+import model.iGerente;
+import view.GerenteView;
 
-/**
- * 
- */
 public class GerenteController {
-
-    /**
-     * Default constructor
-     */
-    public GerenteController() {
-    }
-
     /**
      * 
      */
@@ -21,13 +13,18 @@ public class GerenteController {
      * 
      */
     public GerenteView View;
+    /**
+     * Default constructor
+     */
+    public GerenteController() {
+    }
 
 
     /**
      * @param model 
      * @param view
      */
-    public void GerenteController(void model, void view) {
+    public void GerenteController(iGerente model, GerenteView view) {
         // TODO implement here
     }
 

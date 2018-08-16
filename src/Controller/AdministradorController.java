@@ -1,18 +1,13 @@
 package Controller;
+import view.AdministradorView;
+import model.iAdministrador;
 import java.util.*;
 
 /**
  * 
  */
 public class AdministradorController {
-
-    /**
-     * Default constructor
-     */
-    public AdministradorController() {
-    }
-
-    /**
+     /**
      * 
      */
     public iAdministrador Model;
@@ -21,15 +16,17 @@ public class AdministradorController {
      * 
      */
     public AdministradorView View;
-
-
-
+    /**
+     * Default constructor
+     */
+    public AdministradorController() {
+    }
 
     /**
      * @param model 
      * @param view
      */
-    public void AdministradorController(void model, void view) {
+    public void AdministradorController(iAdministrador model, AdministradorView view) {
         // TODO implement here
     }
 

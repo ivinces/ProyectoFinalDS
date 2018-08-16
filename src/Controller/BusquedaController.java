@@ -1,17 +1,11 @@
-
+package controller;
 import java.util.*;
-
+import model.Busquedas;
+import view.BusquedaView;
 /**
  * 
  */
 public class BusquedaController {
-
-    /**
-     * Default constructor
-     */
-    public BusquedaController() {
-    }
-
     /**
      * 
      */
@@ -21,15 +15,17 @@ public class BusquedaController {
      * 
      */
     public BusquedaView View;
-
-
-
+    /**
+     * Default constructor
+     */
+    public BusquedaController() {
+    }
 
     /**
      * @param model 
      * @param view
      */
-    public void BusquedaController(void model, void view) {
+    public void BusquedaController(Busquedas model, BusquedaView view) {
         // TODO implement here
     }
 

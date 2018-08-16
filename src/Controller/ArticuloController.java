@@ -1,6 +1,7 @@
-
+package Controller;
 import java.util.*;
-
+import model.LineaBlanca;
+import view.LineaBlancaView;
 /**
  * 
  */
@@ -23,14 +24,6 @@ public class ArticuloController {
     public ArticuloController(LineaBlanca model, LineaBlancaView view) {
         // TODO implement here
     }
-    /**
-     * 
-     */
-    
-
-
-
-    
 
     /**
      * @param model
