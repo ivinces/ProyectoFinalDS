@@ -1,27 +1,23 @@
-
+package Model;
 import java.util.*;
 
 /**
  * 
  */
 public class Reportes {
-
+    public String id;
     /**
      * Default constructor
      */
     public Reportes() {
+        this.id="";
     }
-
-    /**
-     * 
-     */
-    public String id;
 
     /**
      * @param String
      */
-    public void Reportes(void String) {
-        // TODO implement here
+    public void Reportes(String id) {
+        this.id=id;
     }
 
 }

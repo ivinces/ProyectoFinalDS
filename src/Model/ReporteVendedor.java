@@ -1,87 +1,74 @@
-
+package Model;
 import java.util.*;
 
 /**
  * 
  */
 public class ReporteVendedor extends Reportes {
-
+    public LineaBlanca articulo;
+    public int cantidad;
+    public float ventasTotalesUSD;
     /**
      * Default constructor
      */
     public ReporteVendedor() {
+        this.articulo= new LineaBlanca();
+        this.cantidad=0;
+        this.ventasTotalesUSD=0;
     }
-
-    /**
-     * 
-     */
-    public LineaBlanca articulo;
-
-    /**
-     * 
-     */
-    public int cantidad;
-
-    /**
-     * 
-     */
-    public float ventasTotalesUSD;
+    
 
     /**
      * @param LineaBlanca 
      * @param int 
      * @param float
      */
-    public void ReporteVendedor(void LineaBlanca, void int, void float) {
-        // TODO implement here
+    public void ReporteVendedor(LineaBlanca articulo, int cantidad, float ventasTotalesUSD){
+        this.articulo=articulo;
+        this.cantidad=cantidad;
+        this.ventasTotalesUSD=ventasTotalesUSD;
     }
 
     /**
      * @return
      */
-    public void setArticulo() {
-        // TODO implement here
-        return null;
+    public void setArticulo(LineaBlanca articulo) {
+        this.articulo=articulo;
     }
 
     /**
      * @return
      */
     public LineaBlanca getArticulo() {
-        // TODO implement here
-        return null;
+        return this.articulo;
     }
 
     /**
      * @return
      */
-    public void setCantidad() {
-        // TODO implement here
-        return null;
+    public void setCantidad(int cantidad) {
+        this.cantidad=cantidad;
     }
 
     /**
      * @return
      */
     public int getCantidad() {
-        // TODO implement here
-        return 0;
+        return this.cantidad;
     }
 
     /**
      * @return
      */
-    public void setVentasTotalesUSD() {
-        // TODO implement here
-        return null;
+    public void setVentasTotalesUSD(float ventasTotalesUSD) {
+        this.ventasTotalesUSD=ventasTotalesUSD;
     }
 
     /**
      * @return
      */
     public float getVentasTotalesUSD() {
-        // TODO implement here
-        return 0.0f;
+        return this.ventasTotalesUSD;
     }
 
 }

@@ -1,4 +1,4 @@
-
+package Model;
 import java.util.*;
 
 /**
@@ -16,8 +16,6 @@ public class Visa implements Pago {
      * @return
      */
     public void Pagar() {
-        // TODO implement here
-        return null;
     }
 
 }

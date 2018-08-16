@@ -1,27 +1,22 @@
-
+package Model;
 import java.util.*;
 
 /**
  * 
  */
 public class Pagos {
-
+    public Pago iPago;
     /**
      * Default constructor
      */
     public Pagos() {
     }
 
-    /**
-     * 
-     */
-    public Pago iPago;
-
 
     /**
      * @param Pago
      */
-    public void Pagos(void Pago) {
+    public void Pagos(Pago iPago) {
         // TODO implement here
     }
 
@@ -29,9 +24,9 @@ public class Pagos {
      * @param String 
      * @return
      */
-    public void procesarPago(void String) {
+    public void procesarPago(String pago){
         // TODO implement here
-        return null;
+        return;
     }
 
 }

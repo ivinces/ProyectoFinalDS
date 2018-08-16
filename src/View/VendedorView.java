@@ -7,7 +7,7 @@ import javafx.scene.layout.HBox;
  * 
  */
 public class VendedorView {
-    public iVendedor Model;
+    public Vendedor Model;
     public HBox Pane;
     /**
      * Default constructor
@@ -20,7 +20,7 @@ public class VendedorView {
     /**
      * @param model
      */
-    public void VendedorView(iVendedor model) {
+    public void VendedorView(Vendedor model) {
         // TODO implement here
     }
 

@@ -1,4 +1,4 @@
-
+package Model;
 import java.util.*;
 
 /**
@@ -15,11 +15,5 @@ public class RefrigeradoraDurex extends LineaBlancaAF {
     /**
      * @return
      */
-    public abstract LineaBlanca CrearArticulo();
-
-    /**
-     * @return
-     */
-    public abstract Marca AsignarMarca();
-
+    
 }

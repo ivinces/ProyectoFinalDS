@@ -1,25 +1,17 @@
-
-import java.util.*;
+/*
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
+ */
+package Model;
 
 /**
- * 
+ *
+ * @author Fanny
  */
-public interface iVendedor {
-
-    /**
-     * @return
-     */
-    public void nuevoCliente();
-
-    /**
-     * @param iVendedor 
-     * @return
-     */
-    public void setNext(void iVendedor);
-
-    /**
-     * @return
-     */
-    public iVendedor getNext();
-
+public class iVendedor {
+    public boolean ocupado;
+    public iVendedor next;
+    public iVendedor(){
+    }
 }

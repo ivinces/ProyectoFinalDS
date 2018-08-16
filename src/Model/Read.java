@@ -1,4 +1,4 @@
-
+package Model;
 import java.util.*;
 
 /**
@@ -17,7 +17,7 @@ public class Read implements Privilegios {
      */
     public void AsignarPrivilegios() {
         // TODO implement here
-        return null;
+        return;
     }
 
 }

@@ -1,36 +1,24 @@
-
+package Model;
 import java.util.*;
 
 /**
  * 
  */
 public class ReporteCliente extends Reportes {
-
+    public String nombres;
+    public String direccion;
+    public String telefono;
+    public float montoPromedio;
     /**
      * Default constructor
      */
     public ReporteCliente() {
+        this.nombres="";
+        this.direccion="";
+        this.telefono="";
+        this.montoPromedio=0;
     }
-
-    /**
-     * 
-     */
-    public String nombres;
-
-    /**
-     * 
-     */
-    public String direccion;
-
-    /**
-     * 
-     */
-    public String telefono;
-
-    /**
-     * 
-     */
-    public float montoPromedio;
+    
 
     /**
      * @param String 
@@ -38,72 +26,67 @@ public class ReporteCliente extends Reportes {
      * @param String 
      * @param float
      */
-    public void ReporteCliente(void String, void String, void String, void float) {
-        // TODO implement here
+    public void ReporteCliente(String nombres, String direccion, String telefono, float montoPromedio){
+        this.nombres=nombres;
+        this.direccion=direccion;
+        this.telefono=telefono;
+        this.montoPromedio=montoPromedio;
     }
 
     /**
      * @return
      */
-    public void setNombres() {
-        // TODO implement here
-        return null;
+    public void setNombres(String nombres) {
+        this.nombres=nombres;
     }
 
     /**
      * @return
      */
     public String getNombres() {
-        // TODO implement here
-        return "";
+        return this.nombres;
     }
 
     /**
      * @return
      */
-    public void setDireccion() {
-        // TODO implement here
-        return null;
+    public void setDireccion(String direccion){
+        this.direccion=direccion;
     }
 
     /**
      * @return
      */
-    public String getDireccion() {
-        // TODO implement here
-        return "";
+    public String getDireccion(){
+        return this.direccion;
     }
 
     /**
      * @return
      */
-    public void setTelefono() {
-        // TODO implement here
-        return null;
+    public void setTelefono(String telefono){
+        this.telefono=telefono;
     }
 
     /**
      * @return
      */
-    public String getTelefono() {
-        // TODO implement here
-        return "";
+    public String getTelefono(){
+        return this.telefono;
     }
 
     /**
      * @return
      */
-    public void setMontoPromedio() {
-        // TODO implement here
-        return null;
+    public void setMontoPromedio(float montoPromedio) {
+        this.montoPromedio=montoPromedio;
     }
 
     /**
      * @return
      */
     public float getMontoPromedio() {
-        // TODO implement here
-        return 0.0f;
+        return this.montoPromedio;
     }
 
 }

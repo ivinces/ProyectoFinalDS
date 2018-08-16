@@ -1,87 +1,73 @@
-
+package Model;
 import java.util.*;
 
 /**
  * 
  */
 public class ReporteArticulo extends Reportes {
-
+    public iVendedor vendedor;
+    public int cantidadVentas;
+    public float montoTotalVentas;
     /**
      * Default constructor
      */
     public ReporteArticulo() {
+        this.vendedor=new iVendedor();
+        this.cantidadVentas=0;
+        this.montoTotalVentas=0;
     }
-
-    /**
-     * 
-     */
-    public iVendedor vendedor;
-
-    /**
-     * 
-     */
-    public int cantidadVentas;
-
-    /**
-     * 
-     */
-    public float montoTotalVentas;
 
     /**
      * @param Vendedor 
      * @param int 
      * @param float
      */
-    public void ReporteArticulo(void Vendedor, void int, void float) {
-        // TODO implement here
+    public void ReporteArticulo(iVendedor vendedor, int cantidadVentas, float montoTotalVentas) {
+        this.vendedor=vendedor;
+        this.cantidadVentas=cantidadVentas;
+        this.montoTotalVentas=montoTotalVentas;
     }
 
     /**
      * @return
      */
-    public void setVendedor() {
-        // TODO implement here
-        return null;
+    public void setVendedor(iVendedor vendedor) {
+        this.vendedor=vendedor;
     }
 
     /**
      * @return
      */
     public iVendedor getVendedor() {
-        // TODO implement here
-        return null;
+        return this.vendedor;
     }
 
     /**
      * @return
      */
-    public void setCantidad() {
-        // TODO implement here
-        return null;
+    public void setCantidad(int cantidadVentas) {
+        this.cantidadVentas=cantidadVentas;
     }
 
     /**
      * @return
      */
     public int getCantidad() {
-        // TODO implement here
-        return 0;
+        return this.cantidadVentas;
     }
 
     /**
      * @return
      */
-    public void setMontoTotalVentas() {
-        // TODO implement here
-        return null;
+    public void setMontoTotalVentas(float montoTotalVentas) {
+        this.montoTotalVentas=montoTotalVentas;
     }
 
     /**
      * @return
      */
     public float getMontoTotalVentas() {
-        // TODO implement here
-        return 0.0f;
+        return this.montoTotalVentas;
     }
 
 }

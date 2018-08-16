@@ -1,27 +1,21 @@
-
+package Model;
 import java.util.*;
 
 /**
  * 
  */
 public class PrivilegiosUsuarios {
-
+    public Privilegios privilegio;
     /**
      * Default constructor
      */
     public PrivilegiosUsuarios() {
     }
-
-    /**
-     * 
-     */
-    public Privilegios privilegio;
-
-
+    
     /**
      * @param Privilegios
      */
-    public void PrivilegiosUsuarios(void Privilegios) {
+    public void PrivilegiosUsuarios(Privilegios privilegios) {
         // TODO implement here
     }
 
