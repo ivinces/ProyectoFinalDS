@@ -1,4 +1,4 @@
-
+package model;
 import java.util.*;
 
 /**
@@ -12,12 +12,8 @@ public class Efectivo implements Pago {
     public Efectivo() {
     }
 
-    /**
-     * @return
-     */
     public void Pagar() {
-        // TODO implement here
-        return null;
+
     }
 
 }

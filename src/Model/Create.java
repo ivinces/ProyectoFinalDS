@@ -1,4 +1,4 @@
-
+package model;
 import java.util.*;
 
 /**
@@ -12,12 +12,10 @@ public class Create implements Privilegios {
     public Create() {
     }
 
-    /**
-     * @return
-     */
+
     public void AsignarPrivilegios() {
         // TODO implement here
-        return null;
+
     }
 
 }

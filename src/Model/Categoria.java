@@ -1,4 +1,4 @@
-
+package model;
 import java.util.*;
 
 /**
@@ -12,12 +12,10 @@ public class Categoria implements Busqueda {
     public Categoria() {
     }
 
-    /**
-     * @return
-     */
+    @Override
     public void Buscar() {
         // TODO implement here
-        return null;
+
     }
 
 }

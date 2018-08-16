@@ -1,4 +1,4 @@
-
+package model;
 import java.util.*;
 
 /**
@@ -21,7 +21,7 @@ public class BusquedaArticulo {
     /**
      * @param Busqueda
      */
-    public void BusquedaArticulo(void Busqueda) {
+    public void BusquedaArticulo(Busqueda Busqueda) {
         // TODO implement here
     }
 

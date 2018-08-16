@@ -1,4 +1,4 @@
-
+package model;
 import java.util.*;
 
 /**
@@ -12,14 +12,15 @@ public class LavadoraMabe extends LineaBlancaAF {
     public LavadoraMabe() {
     }
 
-    /**
-     * @return
-     */
-    public abstract LineaBlanca CrearArticulo();
+    @Override
+    public LineaBlanca CrearArticulo() {
+        return new Lavadora();
+    }
 
-    /**
-     * @return
-     */
-    public abstract Marca AsignarMarca();
+    @Override
+    public Marca AsignarMarca() {
+        return new Mabe();
+    }
+
 
 }

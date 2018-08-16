@@ -1,17 +1,10 @@
-
+package model;
 import java.util.*;
 
 /**
  * 
  */
 public abstract class LineaBlancaAF {
-
-    /**
-     * Default constructor
-     */
-    public LineaBlancaAF() {
-    }
-
     /**
      * @return
      */

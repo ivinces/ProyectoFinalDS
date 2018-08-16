@@ -1,4 +1,4 @@
-
+package model;
 import java.util.*;
 
 /**
@@ -18,7 +18,7 @@ public class CrearLineaBlanca {
     /**
      * @param LineaBlancaAF
      */
-    public void CrearLineaBlanca(void LineaBlancaAF) {
+    public void CrearLineaBlanca(LineaBlancaAF LineaBlancaAF) {
         // TODO implement here
     }
 

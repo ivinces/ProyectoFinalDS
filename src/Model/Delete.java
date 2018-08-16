@@ -1,4 +1,4 @@
-
+package model;
 import java.util.*;
 
 /**
@@ -12,12 +12,9 @@ public class Delete implements Privilegios {
     public Delete() {
     }
 
-    /**
-     * @return
-     */
+
     public void AsignarPrivilegios() {
-        // TODO implement here
-        return null;
+
     }
 
 }

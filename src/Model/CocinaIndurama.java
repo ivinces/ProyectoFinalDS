@@ -1,4 +1,4 @@
-
+package model;
 import java.util.*;
 
 /**
@@ -12,14 +12,14 @@ public class CocinaIndurama extends LineaBlancaAF {
     public CocinaIndurama() {
     }
 
-    /**
-     * @return
-     */
-    public abstract LineaBlanca CrearArticulo();
+    @Override
+    public LineaBlanca CrearArticulo() {
+        return new Cocina();
+    }
 
-    /**
-     * @return
-     */
-    public abstract Marca AsignarMarca();
+    @Override
+    public Marca AsignarMarca() {
+        return new Indurama();
+    }
 
 }
