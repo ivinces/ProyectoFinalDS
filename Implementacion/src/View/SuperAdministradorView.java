@@ -2,6 +2,7 @@ package View;
 import Model.*;
 import java.util.*;
 import javafx.scene.layout.HBox;
+import javafx.stage.Stage;
 
 /**
  * 
@@ -9,10 +10,16 @@ import javafx.scene.layout.HBox;
 public class SuperAdministradorView {
     public iSuperAdministrador Model;
     public HBox Pane;
+    private Stage primaryStage;
     /**
      * Default constructor
      */
-    public SuperAdministradorView() {
+    
+    public HBox getPane() {
+        return Pane;
+    }
+    
+    public SuperAdministradorView(Stage primaryStage) {
     }
     
 

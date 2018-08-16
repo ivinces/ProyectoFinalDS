@@ -2,6 +2,7 @@ package View;
 import Model.*;
 import java.util.*;
 import javafx.scene.layout.HBox;
+import javafx.stage.Stage;
 
 /**
  * 
@@ -9,13 +10,20 @@ import javafx.scene.layout.HBox;
 public class GerenteView {
     public iGerente Model;
     public HBox Pane;
+    public Stage primaryStage;
     /**
      * Default constructor
      */
-    public GerenteView() {
+    
+    public HBox getPane() {
+        return Pane;
+    }
+    
+    
+    public GerenteView(Stage primaryStage) {
     }
 
-
+    
     /**
      * @param model
      */
