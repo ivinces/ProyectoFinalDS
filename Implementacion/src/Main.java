@@ -1,3 +1,4 @@
+import View.AdministradorView;
 import javafx.application.Application;
 import static javafx.application.Application.launch;
 import javafx.stage.Stage;
@@ -21,8 +22,8 @@ public class Main extends Application{
     }
 
     public void start(Stage primaryStage) throws Exception {
-        Inicio org = new Inicio(primaryStage);
-        //NuevasPreguntas org= new NuevasPreguntas(primaryStage,null);
+        //Inicio org = new Inicio(primaryStage);
+        AdministradorView org= new AdministradorView(primaryStage);
         Scene scene = new Scene(org.getPane(), 500, 500);
       
         primaryStage.setTitle("Linea Blanca S.A");
