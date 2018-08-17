@@ -24,7 +24,7 @@ public class Main extends Application{
     public void start(Stage primaryStage) throws Exception {
         //Inicio org = new Inicio(primaryStage);
         AdministradorView org= new AdministradorView(primaryStage);
-        Scene scene = new Scene(org.getPane(), 500, 500);
+        Scene scene = new Scene(org.getPane(), 300, 300);
       
         primaryStage.setTitle("Linea Blanca S.A");
         primaryStage.setScene(scene);

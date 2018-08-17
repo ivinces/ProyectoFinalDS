@@ -32,7 +32,7 @@ public class AdministradorView {
     }
     public void organize(){
         Label lb=new Label("Menu Administrador");
-        lb.setAlignment(Pos.CENTER);
+        lb.setAlignment(Pos.TOP_CENTER);
         lb.setUnderline(true);
         Label productos=new Label("Productos");
         productos.setAlignment(Pos.CENTER);
