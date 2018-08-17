@@ -13,7 +13,7 @@ public class PrivilegiosUsuarios {
     }
     
     /**
-     * @param Privilegios
+     * @param privilegios
      */
     public void PrivilegiosUsuarios(Privilegios privilegios) {
         // TODO implement here
