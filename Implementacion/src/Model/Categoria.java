@@ -25,7 +25,7 @@ public class Categoria implements Busqueda {
 
     @Override
     public void Buscar() {
-        // TODO implement here
+        // Query donde se agrega en options
 
     }
 

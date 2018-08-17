@@ -54,19 +54,22 @@ public class BusquedaView {
 
     private void bnombre(ActionEvent e){
         Nombre n=new Nombre();
+        n.Buscar();
         ObservableList<String> options=n.getOptions();
         ComboBox cbnombre=new ComboBox(options);
     }
     
     private void bdescripcion(ActionEvent e){
         Descripción n=new Descripción();
+        n.Buscar();
         ObservableList<String> options=n.getOptions();
-        ComboBox cbdescripcion=new ComboBox();
+        ComboBox cbdescripcion=new ComboBox(options);
     }
     
     private void bcategoria(ActionEvent e){
         Categoria n=new Categoria();
+        n.Buscar();
         ObservableList<String> options=n.getOptions();
-        ComboBox cbcategoria=new ComboBox();
+        ComboBox cbcategoria=new ComboBox(options);
     }
 }
