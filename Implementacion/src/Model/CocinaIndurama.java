@@ -6,11 +6,13 @@ import java.util.*;
  */
 public class CocinaIndurama extends LineaBlancaAF {
 
-    /**
-     * Default constructor
-     */
+    public CocinaIndurama(String id, String articulo, int cantidadVentas, float montoTotalVentas) {
+        super(id, articulo, cantidadVentas, montoTotalVentas);
+    }
+
     public CocinaIndurama() {
     }
+    
 
     @Override
     public LineaBlanca CrearArticulo() {

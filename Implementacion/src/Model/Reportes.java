@@ -1,23 +1,27 @@
 package Model;
 import java.util.*;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 
 /**
  * 
  */
-public class Reportes {
-    public String id;
+public abstract class Reportes {
+    ObservableList<String> options;
     /**
      * Default constructor
      */
     public Reportes() {
-        this.id="";
+        options =FXCollections.observableArrayList();
+        
     }
 
-    /**
-     * @param String
-     */
-    public void Reportes(String id) {
-        this.id=id;
+    public ObservableList<String> getOptions() {
+        return options;
     }
 
+    public void setOptions(ObservableList<String> options) {
+        this.options = options;
+    }
+    
 }

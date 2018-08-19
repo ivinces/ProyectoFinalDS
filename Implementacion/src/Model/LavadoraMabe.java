@@ -5,10 +5,11 @@ import java.util.*;
  * 
  */
 public class LavadoraMabe extends LineaBlancaAF {
-    LineaBlanca lb;
-    /**
-     * Default constructor
-     */
+
+    public LavadoraMabe(String id, String articulo, int cantidadVentas, float montoTotalVentas) {
+        super(id, articulo, cantidadVentas, montoTotalVentas);
+    }
+
     public LavadoraMabe() {
     }
 

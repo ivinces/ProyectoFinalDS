@@ -6,9 +6,10 @@ import java.util.*;
  */
 public class RefrigeradoraDurex extends LineaBlancaAF {
 
-    /**
-     * Default constructor
-     */
+    public RefrigeradoraDurex(String id, String articulo, int cantidadVentas, float montoTotalVentas) {
+        super(id, articulo, cantidadVentas, montoTotalVentas);
+    }
+
     public RefrigeradoraDurex() {
     }
 

@@ -88,7 +88,6 @@ public class PrivilegiosController {
     }
 
     public void verReportes(ActionEvent e) {
-        Reportes reporte=new Reportes();
         
     }
 
