@@ -1,92 +1,27 @@
 package Model;
 import java.util.*;
+import javafx.collections.ObservableList;
 
 /**
  * 
  */
 public class ReporteCliente extends Reportes {
-    public String nombres;
-    public String direccion;
-    public String telefono;
-    public float montoPromedio;
+    
+    public ArrayList<Clientes> lClientes=new ArrayList<>();
     /**
      * Default constructor
      */
     public ReporteCliente() {
-        this.nombres="";
-        this.direccion="";
-        this.telefono="";
-        this.montoPromedio=0;
+        
     }
     
-
-    /**
-     * @param String 
-     * @param String 
-     * @param String 
-     * @param float
-     */
-    public void ReporteCliente(String nombres, String direccion, String telefono, float montoPromedio){
-        this.nombres=nombres;
-        this.direccion=direccion;
-        this.telefono=telefono;
-        this.montoPromedio=montoPromedio;
-    }
-
-    /**
-     * @return
-     */
-    public void setNombres(String nombres) {
-        this.nombres=nombres;
-    }
-
-    /**
-     * @return
-     */
-    public String getNombres() {
-        return this.nombres;
-    }
-
-    /**
-     * @return
-     */
-    public void setDireccion(String direccion){
-        this.direccion=direccion;
-    }
-
-    /**
-     * @return
-     */
-    public String getDireccion(){
-        return this.direccion;
-    }
-
-    /**
-     * @return
-     */
-    public void setTelefono(String telefono){
-        this.telefono=telefono;
-    }
-
-    /**
-     * @return
-     */
-    public String getTelefono(){
-        return this.telefono;
-    }
-
-    /**
-     * @return
-     */
-    public void setMontoPromedio(float montoPromedio) {
-        this.montoPromedio=montoPromedio;
-    }
-
-    /**
-     * @return
-     */
-    public float getMontoPromedio() {
-        return this.montoPromedio;
+    @Override
+    public ObservableList<String> getOptions() {
+        ObservableList<String> olCli = null;
+        for(Clientes cliente:lClientes){
+            olCli.add(cliente.nombres+" "+cliente.apellidos);
+        }
+        return olCli;
     }
 
 }

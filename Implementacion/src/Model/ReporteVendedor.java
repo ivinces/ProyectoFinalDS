@@ -1,74 +1,24 @@
 package Model;
 import java.util.*;
+import javafx.collections.ObservableList;
 
 /**
  * 
  */
 public class ReporteVendedor extends Reportes {
-    public LineaBlanca articulo;
-    public int cantidad;
-    public float ventasTotalesUSD;
-    /**
-     * Default constructor
-     */
+    public ArrayList<iVendedor> lvendedores=new ArrayList<>();
     public ReporteVendedor() {
-        this.articulo= new LineaBlanca() {};
-        this.cantidad=0;
-        this.ventasTotalesUSD=0;
+        
     }
     
-
-    /**
-     * @param LineaBlanca 
-     * @param int 
-     * @param float
-     */
-    public void ReporteVendedor(LineaBlanca articulo, int cantidad, float ventasTotalesUSD){
-        this.articulo=articulo;
-        this.cantidad=cantidad;
-        this.ventasTotalesUSD=ventasTotalesUSD;
-    }
-
-    /**
-     * @return
-     */
-    public void setArticulo(LineaBlanca articulo) {
-        this.articulo=articulo;
-    }
-
-    /**
-     * @return
-     */
-    public LineaBlanca getArticulo() {
-        return this.articulo;
-    }
-
-    /**
-     * @return
-     */
-    public void setCantidad(int cantidad) {
-        this.cantidad=cantidad;
-    }
-
-    /**
-     * @return
-     */
-    public int getCantidad() {
-        return this.cantidad;
-    }
-
-    /**
-     * @return
-     */
-    public void setVentasTotalesUSD(float ventasTotalesUSD) {
-        this.ventasTotalesUSD=ventasTotalesUSD;
-    }
-
-    /**
-     * @return
-     */
-    public float getVentasTotalesUSD() {
-        return this.ventasTotalesUSD;
+    
+    @Override
+    public ObservableList<String> getOptions() {
+        ObservableList<String> olVend = null;
+        for(iVendedor vend:this.lvendedores){
+            olVend.add(vend.getNombre()+""+vend.getApellido());
+        }
+        return olVend;
     }
 
 }
