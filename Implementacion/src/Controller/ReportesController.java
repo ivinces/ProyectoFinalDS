@@ -6,7 +6,6 @@
 package Controller;
 import java.util.*;
 import Model.*;
-import View.*;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
@@ -17,7 +16,6 @@ import java.text.SimpleDateFormat;
 import java.util.concurrent.TimeUnit;
 import java.util.logging.Level;
 import java.util.logging.Logger;
-import javafx.collections.ObservableList;
 
 /**
  *

@@ -5,20 +5,15 @@
  */
 package View;
 
-import Model.ReporteArticulo;
-import Model.ReporteCliente;
-import Model.ReporteVendedor;
 import Model.Reportes;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
-import javafx.event.EventHandler;
 import javafx.geometry.Pos;
 import javafx.scene.control.Button;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.Label;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
-import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
 import Controller.ReportesController;
@@ -79,9 +74,9 @@ public class ReportesView {
         VBox vboton= new VBox();
         bbuscar.setOnAction((e)->{buscar(e,stage,vboton);});
         Scene scene = new Scene(vboton, 300, 300);
-        primaryStage.setTitle("Reportes");
-        primaryStage.setScene(scene);
-        primaryStage.show();
+        stage.setTitle("Reportes");
+        stage.setScene(scene);
+        stage.show();
     }
     
     public void buscar(ActionEvent e, Stage primarystage, VBox vboton){

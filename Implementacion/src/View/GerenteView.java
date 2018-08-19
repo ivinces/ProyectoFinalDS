@@ -44,17 +44,17 @@ public class GerenteView {
         vbproductos.setAlignment(Pos.CENTER);
         vbproductos.setSpacing(10);
         
-        Label ventas=new Label("Reportes");
-        ventas.setAlignment(Pos.CENTER);
-        Button verv=new Button("Ver");
-        verv.setAlignment(Pos.CENTER);
-        verv.setOnAction(e->(new PrivilegiosController()).verReportes(e));
-        VBox vbventas=new VBox();
-        vbventas.getChildren().addAll(ventas,verv);
-        vbventas.setAlignment(Pos.CENTER);
-        vbventas.setSpacing(10);
+        Label reporte=new Label("Reportes");
+        reporte.setAlignment(Pos.CENTER);
+        Button reportev=new Button("Ver");
+        reportev.setAlignment(Pos.CENTER);
+        reportev.setOnAction(e->(new PrivilegiosController()).verReportes(e,primaryStage));
+        VBox vbreporte=new VBox();
+        vbreporte.getChildren().addAll(reporte,reportev);
+        vbreporte.setAlignment(Pos.CENTER);
+        vbreporte.setSpacing(10);
         
-        Pane.getChildren().addAll(lb,vbproductos,vbventas);
+        Pane.getChildren().addAll(lb,vbproductos,vbreporte);
         Pane.setAlignment(Pos.CENTER);
         Pane.setSpacing(10);
     }

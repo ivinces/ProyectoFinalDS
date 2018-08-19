@@ -71,12 +71,22 @@ public class AdministradorView {
         vbventas.setAlignment(Pos.CENTER);
         vbventas.setSpacing(10);
         
+        Label reporte=new Label("Reportes");
+        reporte.setAlignment(Pos.CENTER);
+        Button reportev=new Button("Ver");
+        reportev.setAlignment(Pos.CENTER);
+        reportev.setOnAction(e->(new PrivilegiosController()).verReportes(e,primaryStage));
+        VBox vbreporte=new VBox();
+        vbreporte.getChildren().addAll(reporte,reportev);
+        vbreporte.setAlignment(Pos.CENTER);
+        vbreporte.setSpacing(10);
+        
         
         HBox hb=new HBox();
         hb.getChildren().addAll(vbproductos, vbventas);
         hb.setAlignment(Pos.CENTER);
         hb.setSpacing(30);
-        Pane.getChildren().addAll(lb,hb);
+        Pane.getChildren().addAll(lb,hb,vbreporte);
         Pane.setAlignment(Pos.CENTER);
         Pane.setSpacing(10);
     

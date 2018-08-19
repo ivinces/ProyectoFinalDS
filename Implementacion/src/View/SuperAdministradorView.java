@@ -88,13 +88,27 @@ public class SuperAdministradorView {
         vbusuarios.setAlignment(Pos.CENTER);
         vbusuarios.setSpacing(10);
         
+        Label reporte=new Label("Reportes");
+        reporte.setAlignment(Pos.CENTER);
+        Button reportev=new Button("Ver");
+        reportev.setAlignment(Pos.CENTER);
+        reportev.setOnAction(e->(new PrivilegiosController()).verReportes(e,primaryStage));
+        VBox vbreporte=new VBox();
+        vbreporte.getChildren().addAll(reporte,reportev);
+        vbreporte.setAlignment(Pos.CENTER);
+        vbreporte.setSpacing(10);
         
         HBox hb=new HBox();
         hb.getChildren().addAll(vbproductos, vbventas);
         hb.setAlignment(Pos.CENTER);
         hb.setSpacing(30);
         
-        Pane.getChildren().addAll(lb,hb,vbusuarios);
+        HBox hb2=new HBox();
+        hb2.getChildren().addAll(vbusuarios, vbreporte);
+        hb2.setAlignment(Pos.CENTER);
+        hb2.setSpacing(30);
+        
+        Pane.getChildren().addAll(lb,hb,hb2);
         Pane.setAlignment(Pos.CENTER);
         Pane.setSpacing(10);
     
