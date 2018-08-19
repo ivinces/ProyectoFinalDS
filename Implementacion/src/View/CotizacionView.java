@@ -2,25 +2,29 @@ package View;
 import Model.*;
 import java.util.*;
 import javafx.scene.layout.HBox;
+import javafx.scene.layout.VBox;
+import javafx.stage.Stage;
 
 /**
  * 
  */
 public class CotizacionView {
     public Cotizacion Model;
-    public HBox Pane;
+    public VBox Pane;
     
     /**
      * Default constructor
      */
     public CotizacionView() {
     }
-
+    public VBox getPane(){
+        return Pane;
+    }
 
     /**
-     * @param model
+     * @param primaryStage
      */
-    public void CotizacionView(Cotizacion model) {
+    public CotizacionView(Stage primaryStage) {
         // TODO implement here
     }
 

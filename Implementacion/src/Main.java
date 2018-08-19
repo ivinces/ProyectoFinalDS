@@ -1,8 +1,7 @@
-import View.AdministradorView;
 import javafx.application.Application;
 import static javafx.application.Application.launch;
 import javafx.stage.Stage;
-import View.Inicio;
+import View.*;
 import javafx.scene.Scene;
 
 /*
@@ -21,9 +20,10 @@ public class Main extends Application{
 
     }
 
+    @Override
     public void start(Stage primaryStage) throws Exception {
         //Inicio org = new Inicio(primaryStage);
-        AdministradorView org= new AdministradorView(primaryStage);
+        VendedorView org= new  VendedorView(primaryStage);
         Scene scene = new Scene(org.getPane(), 300, 300);
       
         primaryStage.setTitle("Linea Blanca S.A");

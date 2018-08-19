@@ -10,7 +10,17 @@ public class Lavadora extends LineaBlanca {
      * Default constructor
      */
     public Lavadora(){
-        lb.setDescripcion("Lavadora");
+        lb.setNombre("Lavadora");
     }
+
+    public LineaBlanca getLb() {
+        return lb;
+    }
+
+    public void setLb(LineaBlanca lb) {
+        this.lb = lb;
+    }
+    
+    
 
 }

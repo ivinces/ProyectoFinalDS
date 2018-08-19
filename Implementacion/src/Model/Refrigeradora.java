@@ -10,7 +10,7 @@ public class Refrigeradora extends LineaBlanca {
      * Default constructor
      */
     public Refrigeradora() {
-        lb.setDescripcion("Refrigeradora");
+        lb.setNombre("Refrigeradora");
     }
 
 }

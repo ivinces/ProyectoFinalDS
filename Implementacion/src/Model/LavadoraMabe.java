@@ -5,7 +5,7 @@ import java.util.*;
  * 
  */
 public class LavadoraMabe extends LineaBlancaAF {
-
+    LineaBlanca lb;
     /**
      * Default constructor
      */

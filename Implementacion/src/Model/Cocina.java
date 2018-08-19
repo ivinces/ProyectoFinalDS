@@ -12,7 +12,7 @@ public class Cocina extends LineaBlanca {
      */
     public Cocina() {
         this.induccion=true;
-        lb.setDescripcion("Lavadora");
+        lb.setNombre("Cocina");
     }
 
 }

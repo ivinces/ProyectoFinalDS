@@ -13,23 +13,7 @@ import javafx.collections.ObservableList;
 /**
  * 
  */
-public class Categoria implements Busqueda {
-    ObservableList<String> options;
-    /**
-     * Default constructor
-     */
-    public Categoria() {
-        options =FXCollections.observableArrayList();
-    }
-
-    public ObservableList<String> getOptions() {
-        return options;
-    }
-
-    public void setOptions(ObservableList<String> options) {
-        this.options = options;
-    }
-
+public class Categoria extends BusquedaArticulo {
     @Override
     public void Buscar() {
         try {
@@ -41,8 +25,10 @@ public class Categoria implements Busqueda {
         Connection m_Connection;
         try {
             m_Connection = DriverManager.getConnection(
-                    "jdbc:microsoft:sqlserver://localhost:1433;DatabaseName=MyDatabase", "userid", "password");
-            String query = "SELECT * FROM MyTable";
+                    "jdbc:microsoft:sqlserver://localhost:1433;DatabaseName=ProyectoDS", "userid", "password");
+            String query = "SELECT DISTINCT Marca FROM Articulo,Cocina,Lavadora,Refrigeradora"
+                    + "WHERE Articulo.IDArticulos=Cocina.IDArticulos AND Articulo.IDArticulos=Lavadora.IDArticulos "
+                    + "AND WHERE Articulo.IDArticulos=Refrigeradora.IDArticulos";
             PreparedStatement pstmt=m_Connection.prepareStatement(query);
             ResultSet m_ResultSet = pstmt.executeQuery();
             if (m_ResultSet.next()){
@@ -54,6 +40,16 @@ public class Categoria implements Busqueda {
            
         }
 
+    }
+
+    @Override
+    public ObservableList<String> getOptions() {
+        return options;
+    }
+
+    @Override
+    public void setOptions(ObservableList<String> options) {
+        this.options=options;
     }
 
 }

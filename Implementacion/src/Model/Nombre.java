@@ -10,20 +10,20 @@ import java.sql.*;
 /**
  * 
  */
-public class Nombre implements Busqueda {
-    ObservableList<String> options;
+public class Nombre extends BusquedaArticulo {
     /**
      * Default constructor
      */
     public Nombre() {
-        options =FXCollections.observableArrayList();
         
     }
 
+    @Override
     public ObservableList<String> getOptions() {
         return options;
     }
 
+    @Override
     public void setOptions(ObservableList<String> options) {
         this.options = options;
     }
@@ -40,8 +40,10 @@ public class Nombre implements Busqueda {
         Connection m_Connection;
         try {
             m_Connection = DriverManager.getConnection(
-                    "jdbc:microsoft:sqlserver://localhost:1433;DatabaseName=MyDatabase", "userid", "password");
-            String query = "SELECT * FROM MyTable";
+                    "jdbc:microsoft:sqlserver://localhost:1433;DatabaseName=ProyectoDS", "userid", "password");
+            String query = "SELECT DISTINCT Nombre FROM Articulo,Cocina,Lavadora,Refrigeradora"
+                    + "WHERE Articulo.IDArticulos=Cocina.IDArticulos AND Articulo.IDArticulos=Lavadora.IDArticulos "
+                    + "AND WHERE Articulo.IDArticulos=Refrigeradora.IDArticulos";
             PreparedStatement pstmt=m_Connection.prepareStatement(query);
             ResultSet m_ResultSet = pstmt.executeQuery();
             if (m_ResultSet.next()){

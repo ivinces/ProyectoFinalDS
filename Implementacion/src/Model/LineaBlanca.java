@@ -7,6 +7,15 @@ import java.util.*;
 public abstract class LineaBlanca {
     public String marca;
     public String descripcion;
+    public String nombre;
+
+    public String getNombre() {
+        return nombre;
+    }
+
+    public void setNombre(String nombre) {
+        this.nombre = nombre;
+    }
 
     public String getDescripcion() {
         return descripcion;

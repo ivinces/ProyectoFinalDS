@@ -1,4 +1,5 @@
 package View;
+import Controller.InicioController;
 import Model.*;
 import java.util.*;
 import javafx.event.ActionEvent;
@@ -40,41 +41,9 @@ public class Inicio {
         Label lb2=new Label("Ingresa tu clave");
         TextField txarea2=new TextField();
         Button ingresar=new Button("Ingresar");
+        ingresar.setOnAction(e->(new InicioController()).ingresar(e, primaryStage,
+                txarea.getText(),txarea2.getText()));
         Pane.getChildren().addAll(lb,txarea,lb2,txarea2, ingresar);
     
     }
-    
-    
-    private void ingresar(ActionEvent e){
-        Stage stage = new Stage();
-        Scene scene;
-        if(true){
-            AdministradorView c = new AdministradorView(stage);
-            scene = new Scene(c.getPane(), 500, 500);
-        }
-        else if(false){
-            GerenteView c = new GerenteView(stage);
-            scene = new Scene(c.getPane(), 500, 500);
-        }
-        
-        else if(true){
-            SuperAdministradorView c = new SuperAdministradorView(stage);
-            scene = new Scene(c.getPane(), 500, 500);
-        }
-        else{
-            VendedorView c = new VendedorView(stage);
-            scene = new Scene(c.getPane(), 500, 500);
-        }
-        
-        stage.setTitle("");
-        stage.setScene(scene);
-        primaryStage.hide();
-        stage.show();
-    
-    }
-            
-    public void Inicio(iUsuarios model) {
-        // TODO implement here
-    }
-
 }

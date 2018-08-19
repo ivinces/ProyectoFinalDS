@@ -1,4 +1,5 @@
 package View;
+import Controller.PrivilegiosController;
 import Model.*;
 import java.util.*;
 import javafx.geometry.Pos;
@@ -29,31 +30,33 @@ public class GerenteView {
         organize();
     }
     public void organize(){
-        Label lb=new Label("Menu Administrador");
-        lb.setAlignment(Pos.CENTER);
+        Label lb=new Label("Menu Gerente");
+        lb.setAlignment(Pos.TOP_CENTER);
         lb.setUnderline(true);
+        
         Label productos=new Label("Productos");
         productos.setAlignment(Pos.CENTER);
         Button verp=new Button("Ver");
         verp.setAlignment(Pos.CENTER);
+        verp.setOnAction(e->(new PrivilegiosController()).verProducto(e, primaryStage));
         VBox vbproductos=new VBox();
         vbproductos.getChildren().addAll(productos,verp);
-        Label ventas=new Label("Ventas");
+        vbproductos.setAlignment(Pos.CENTER);
+        vbproductos.setSpacing(10);
+        
+        Label ventas=new Label("Reportes");
         ventas.setAlignment(Pos.CENTER);
-        Button ingresarv=new Button("Crear");
-        ingresarv.setAlignment(Pos.CENTER);
         Button verv=new Button("Ver");
         verv.setAlignment(Pos.CENTER);
-        Button actualizarv=new Button("Actualizar");
-        actualizarv.setAlignment(Pos.CENTER);
-        Button borrarv=new Button("Eliminar");
-        borrarv.setAlignment(Pos.CENTER);
+        verv.setOnAction(e->(new PrivilegiosController()).verReportes(e));
         VBox vbventas=new VBox();
-        vbventas.getChildren().addAll(ventas,ingresarv,verv,actualizarv,borrarv);
-        HBox hb=new HBox();
-        hb.getChildren().addAll(vbproductos, vbventas);
-        Pane.getChildren().addAll(lb,hb);
-    
+        vbventas.getChildren().addAll(ventas,verv);
+        vbventas.setAlignment(Pos.CENTER);
+        vbventas.setSpacing(10);
+        
+        Pane.getChildren().addAll(lb,vbproductos,vbventas);
+        Pane.setAlignment(Pos.CENTER);
+        Pane.setSpacing(10);
     }
     
     

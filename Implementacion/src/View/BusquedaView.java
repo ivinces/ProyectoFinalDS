@@ -4,6 +4,7 @@
  * and open the template in the editor.
  */
 package View;
+import Controller.BusquedaController;
 import Model.*;
 import java.util.*;
 import javafx.collections.ObservableList;
@@ -45,31 +46,17 @@ public class BusquedaView {
         
         Button bnombre=new Button("Buscar por nombre");
         bnombre.setAlignment(Pos.CENTER);
+        bnombre.setOnAction(e->(new BusquedaController()).bnombre(e, primaryStage));
         Button bdescripcion=new Button("Buscar por descripción");
         bdescripcion.setAlignment(Pos.CENTER);
+        bdescripcion.setOnAction(e->{
+            (new BusquedaController()).bdescripcion(e, primaryStage);
+        });
         Button bcategoria=new Button("Buscar por categoria");
         bcategoria.setAlignment(Pos.CENTER);
+        bcategoria.setOnAction(e->(new BusquedaController()).bcategoria(e, primaryStage));
         Pane.getChildren().addAll(bnombre,bdescripcion,bcategoria);
-    }
-
-    private void bnombre(ActionEvent e){
-        Nombre n=new Nombre();
-        n.Buscar();
-        ObservableList<String> options=n.getOptions();
-        ComboBox cbnombre=new ComboBox(options);
-    }
-    
-    private void bdescripcion(ActionEvent e){
-        Descripción n=new Descripción();
-        n.Buscar();
-        ObservableList<String> options=n.getOptions();
-        ComboBox cbdescripcion=new ComboBox(options);
-    }
-    
-    private void bcategoria(ActionEvent e){
-        Categoria n=new Categoria();
-        n.Buscar();
-        ObservableList<String> options=n.getOptions();
-        ComboBox cbcategoria=new ComboBox(options);
+        Pane.setAlignment(Pos.CENTER);
+        Pane.setSpacing(10);
     }
 }
