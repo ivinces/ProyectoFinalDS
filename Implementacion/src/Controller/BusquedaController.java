@@ -1,18 +1,14 @@
 package Controller;
-import java.util.*;
-import Model.Busqueda;
 import Model.BusquedaArticulo;
 import Model.Categoria;
 import Model.Descripción;
 import Model.Nombre;
-import View.BusquedaView;
 import View.CategoriaView;
 import View.DescripcionView;
 import View.NombreView;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.scene.Scene;
-import javafx.scene.control.ComboBox;
 import javafx.stage.Stage;
 /**
  * 

@@ -2,6 +2,12 @@
 <project-private xmlns="http://www.netbeans.org/ns/project-private/1">
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
-        <group/>
+        <group>
+            <file>file:/C:/Users/Pedrito/Desktop/ProyectoFinalDS2/Implementacion/src/View/NombreView.java</file>
+            <file>file:/C:/Users/Pedrito/Desktop/ProyectoFinalDS2/Implementacion/src/Controller/BusquedaController.java</file>
+            <file>file:/C:/Users/Pedrito/Desktop/ProyectoFinalDS2/Implementacion/src/Model/Nombre.java</file>
+            <file>file:/C:/Users/Pedrito/Desktop/ProyectoFinalDS2/Implementacion/src/Controller/NombreController.java</file>
+            <file>file:/C:/Users/Pedrito/Desktop/ProyectoFinalDS2/Implementacion/src/View/VendedorView.java</file>
+        </group>
     </open-files>
 </project-private>

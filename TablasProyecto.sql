@@ -1,5 +1,7 @@
-/*CREATE database ProyectoDS;*/
-USE ProyectoDS;
+CREATE database Name;
+go
+USE Name;
+go
 CREATE TABLE Locales(
 IDLocales int NOT NULL,
 Nombre varchar(50),

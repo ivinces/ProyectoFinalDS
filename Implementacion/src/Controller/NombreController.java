@@ -59,16 +59,16 @@ public class NombreController {
         String com=(String) cb.getSelectionModel().getSelectedItem();
         this.Pane=pane;
         this.primaryStage=primaryStage;
-        try {
-            Class.forName("com.microsoft.jdbc.sqlserver.SQLServerDriver");
-        } catch (ClassNotFoundException ex) {
-            Logger.getLogger(Nombre.class.getName()).log(Level.SEVERE, null, ex);
-        }
+//        try {
+//            Class.forName("com.microsoft.jdbc.sqlserver.SQLServerDriver");
+//        } catch (ClassNotFoundException ex) {
+//            Logger.getLogger(Nombre.class.getName()).log(Level.SEVERE, null, ex);
+//        }
 
         Connection m_Connection;
         try {
             m_Connection = DriverManager.getConnection(
-                    "jdbc:microsoft:sqlserver://localhost:1433;DatabaseName=ProyectoDS", "userid", "password");
+                    "jdbc:microsoft:sqlserver://localhost:1433;DatabaseName=ProyectoDS", "sa", "12345");
             String query = "";
             switch (com) {
                 case "Cocina":
