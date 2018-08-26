@@ -5686,7 +5686,7 @@
 											"top": 310,
 											"width": 110.96337890625,
 											"height": 13,
-											"text": "+next: iVendedor",
+											"text": "+next: Vendedor",
 											"horizontalAlignment": 0
 										},
 										{
@@ -5831,7 +5831,7 @@
 											"top": 390,
 											"width": 149.9443359375,
 											"height": 13,
-											"text": "iVendedor"
+											"text": "Vendedor"
 										},
 										{
 											"_type": "LabelView",
@@ -5953,7 +5953,7 @@
 											"top": 443,
 											"width": 149.9443359375,
 											"height": 13,
-											"text": "+getNext(): iVendedor",
+											"text": "+getNext(): Vendedor",
 											"horizontalAlignment": 0
 										}
 									],
@@ -30706,7 +30706,7 @@
 									"_parent": {
 										"$ref": "AAAAAAFldp65aqWSSrE="
 									},
-									"name": "iVendedor",
+									"name": "Vendedor",
 									"operations": [
 										{
 											"_type": "UMLOperation",
@@ -44936,7 +44936,8 @@
 							"_parent": {
 								"$ref": "AAAAAAFld8gTuFqh1tk="
 							},
-							"name": "Role2"
+							"name": "Role2",
+							"type": ""
 						},
 						{
 							"_type": "UMLAttribute",
@@ -44944,7 +44945,8 @@
 							"_parent": {
 								"$ref": "AAAAAAFld8gTuFqh1tk="
 							},
-							"name": "Role3"
+							"name": "Role3",
+							"type": ""
 						},
 						{
 							"_type": "UMLAttribute",

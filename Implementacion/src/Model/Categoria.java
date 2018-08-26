@@ -16,30 +16,15 @@ import javafx.collections.ObservableList;
 public class Categoria extends BusquedaArticulo {
     @Override
     public void Buscar() {
-        try {
-            Class.forName("com.microsoft.jdbc.sqlserver.SQLServerDriver");
-        } catch (ClassNotFoundException ex) {
-            Logger.getLogger(Nombre.class.getName()).log(Level.SEVERE, null, ex);
-        }
-
-        Connection m_Connection;
-        try {
-            m_Connection = DriverManager.getConnection(
-                    "jdbc:microsoft:sqlserver://localhost:1433;DatabaseName=ProyectoDS", "userid", "password");
-            String query = "SELECT DISTINCT Marca FROM Articulo,Cocina,Lavadora,Refrigeradora"
+        Conexion c= new Conexion();
+        c.conectar("jdbc:microsoft:sqlserver://localhost:1433;DatabaseName=ProyectoDS");
+        String query = "SELECT DISTINCT Marca FROM Articulo,Cocina,Lavadora,Refrigeradora"
                     + "WHERE Articulo.IDArticulos=Cocina.IDArticulos AND Articulo.IDArticulos=Lavadora.IDArticulos "
                     + "AND WHERE Articulo.IDArticulos=Refrigeradora.IDArticulos";
-            PreparedStatement pstmt=m_Connection.prepareStatement(query);
-            ResultSet m_ResultSet = pstmt.executeQuery();
-            if (m_ResultSet.next()){
+        ResultSet m_ResultSet=c.obtenerSet(query);
+        if (m_ResultSet.next()){
                 options.add(m_ResultSet.getString("Categoria"));
-            }
-            
-        } 
-        catch (SQLException ex) {
-           
         }
-
     }
 
     @Override
@@ -51,5 +36,7 @@ public class Categoria extends BusquedaArticulo {
     public void setOptions(ObservableList<String> options) {
         this.options=options;
     }
+    
+    
 
 }

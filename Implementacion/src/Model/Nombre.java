@@ -26,14 +26,9 @@ public class Nombre extends BusquedaArticulo {
     
     @Override
     public void Buscar() {
-//        try {
-//            Class.forName("com.microsoft.jdbc.sqlserver.SQLServerDriver");
-//        } catch (ClassNotFoundException ex) {
-//            Logger.getLogger(Nombre.class.getName()).log(Level.SEVERE, null, ex);
-//        }
         
         try {
-             Connection m_Connection = DriverManager.getConnection(
+            Connection m_Connection = DriverManager.getConnection(
                     "jdbc:microsoft:sqlserver://localhost:1433;DatabaseName=ProyectoDS");
             String query = "SELECT DISTINCT Nombre FROM Articulo,Cocina,Lavadora,Refrigeradora"
                     + "WHERE Articulo.IDArticulos=Cocina.IDArticulos AND Articulo.IDArticulos=Lavadora.IDArticulos "
