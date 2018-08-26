@@ -43,6 +43,9 @@ public class Conexion {
         return m_ResultSet;       
     }
     
+    public void llenar(){
+        
+    }
     
     
 }
