@@ -4,20 +4,24 @@ import java.util.*;
 /**
  * 
  */
-public class Lavadora extends LineaBlanca {
-    LineaBlanca lb;
+public class Lavadora extends Articulo {
+    Articulo lb;
     /**
      * Default constructor
      */
     public Lavadora(){
-        lb.setNombre("Lavadora");
+        super.setNombre("Lavadora");
     }
 
-    public LineaBlanca getLb() {
+    public Lavadora(String string, String string0, int parseInt, float parseFloat) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    public Articulo getLb() {
         return lb;
     }
 
-    public void setLb(LineaBlanca lb) {
+    public void setLb(Articulo lb) {
         this.lb = lb;
     }
     

@@ -32,8 +32,8 @@ public class ReportesController {
         }
     }
     
-    public ArrayList<LineaBlancaAF> BuscaArticulos() {
-        ArrayList<LineaBlancaAF> larticulo=new ArrayList<>();
+    public ArrayList<Articulo> BuscaArticulos() {
+        ArrayList<Articulo> larticulo=new ArrayList<>();
         try {
             m_Connection = DriverManager.getConnection(
                     "jdbc:microsoft:sqlserver://localhost:1433;DatabaseName=MyDatabase", "userid", "password");
@@ -44,19 +44,19 @@ public class ReportesController {
             String query = "SELECT Articulos.IDArticulos, Nombre, COUNT(Ventas.IDArticulos) AS CantidadVentas, SUM(Articulos.Precio) AS VentasTotalesUSD FROM Lavadora, Refrigeradora, Cocina, Ventas, Articulos WHERE Articulos.IDArticulos=Refrigeradora.IDArticulos AND Articulos.IDArticulos=Lavadora.IDArticulos AND Articulos.IDArticulos=Cocina.IDArticulos AND Articulos.IDArticulos=Ventas.IDArticulos AND Fecha BETWEEN "+fechaQ+" AND "+fechaAct;
             PreparedStatement pstmt=m_Connection.prepareStatement(query);
             ResultSet m_ResultSet = pstmt.executeQuery();
-            LineaBlancaAF art;
+            Articulo art;
             if (m_ResultSet.next()){
                 switch (m_ResultSet.getString("Nombre")) {
                     case "Lavadora":
-                        art=new LavadoraMabe(m_ResultSet.getString("IDArticulos"), m_ResultSet.getString("Nombre"), Integer.parseInt(m_ResultSet.getString("CantidadVentas")),Float.parseFloat(m_ResultSet.getString("VentasTotalesUSD")));
+                        art=new Lavadora(m_ResultSet.getString("IDArticulos"), m_ResultSet.getString("Nombre"), Integer.parseInt(m_ResultSet.getString("CantidadVentas")),Float.parseFloat(m_ResultSet.getString("VentasTotalesUSD")));
                         larticulo.add(art);
                         break;
                     case "Cocina":
-                        art=new CocinaIndurama(m_ResultSet.getString("IDArticulos"), m_ResultSet.getString("Nombre"), Integer.parseInt(m_ResultSet.getString("CantidadVentas")),Float.parseFloat(m_ResultSet.getString("VentasTotalesUSD")));
+                        art=new Cocina(m_ResultSet.getString("IDArticulos"), m_ResultSet.getString("Nombre"), Integer.parseInt(m_ResultSet.getString("CantidadVentas")),Float.parseFloat(m_ResultSet.getString("VentasTotalesUSD")));
                         larticulo.add(art);
                         break;
                     case "Refrigeradora":
-                        art=new RefrigeradoraDurex(m_ResultSet.getString("IDArticulos"), m_ResultSet.getString("Nombre"), Integer.parseInt(m_ResultSet.getString("CantidadVentas")),Float.parseFloat(m_ResultSet.getString("VentasTotalesUSD")));
+                        art=new Refrigeradora(m_ResultSet.getString("IDArticulos"), m_ResultSet.getString("Nombre"), Integer.parseInt(m_ResultSet.getString("CantidadVentas")),Float.parseFloat(m_ResultSet.getString("VentasTotalesUSD")));
                         larticulo.add(art);
                         break;
                     default:

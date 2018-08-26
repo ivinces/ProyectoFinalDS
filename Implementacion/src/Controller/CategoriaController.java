@@ -5,12 +5,12 @@
  */
 package Controller;
 
-import Model.CocinaIndurama;
-import Model.LavadoraMabe;
-import Model.LineaBlanca;
-import Model.LineaBlancaAF;
+
+import Model.Articulo;
+import Model.Cocina;
+import Model.Lavadora;
 import Model.Nombre;
-import Model.RefrigeradoraDurex;
+import Model.Refrigeradora;
 import View.CotizacionView;
 import View.VentaView;
 import java.sql.Connection;
@@ -36,7 +36,7 @@ import javafx.stage.Stage;
  * @author isabe
  */
 public class CategoriaController {
-    LinkedList<LineaBlanca> articulos;
+    LinkedList<Articulo> articulos;
     VBox vb;
     Button anterior,siguiente,venta,cotizacion;
     int index;
@@ -48,11 +48,11 @@ public class CategoriaController {
         vb=new VBox();
     }
 
-    public LinkedList<LineaBlanca> getArticulos() {
+    public LinkedList<Articulo> getArticulos() {
         return articulos;
     }
 
-    public void setArticulos(LinkedList<LineaBlanca> articulos) {
+    public void setArticulos(LinkedList<Articulo> articulos) {
         this.articulos = articulos;
     }
     
@@ -76,23 +76,23 @@ public class CategoriaController {
             PreparedStatement pstmt=m_Connection.prepareStatement(query);
             ResultSet m_ResultSet = pstmt.executeQuery();
             if (m_ResultSet.next()){
-                LineaBlancaAF articulo;
+                Articulo articulo;
                 String marca=m_ResultSet.getString("Marca");
                 switch (marca) {
                     case "Indurama":
-                        articulo=new CocinaIndurama();
+                        articulo=new Cocina();
                         break;
                     case "Mabe":
-                        articulo=new LavadoraMabe();
+                        articulo=new Lavadora();
                         break;
                     default:
-                        articulo=new RefrigeradoraDurex();
+                        articulo=new Refrigeradora();
                         break;
                 }
-                String descripcion=m_ResultSet.getString("Color");
-                LineaBlanca b=articulo.CrearArticulo();
-                articulo.CrearArticulo().setDescripcion(descripcion);
-                articulos.add(b);
+                /*String descripcion=m_ResultSet.getString("Color");
+                Articulo b = new Articulo();
+                b.setDescripcion(descripcion);
+                articulos.add(b);*/
             }
             
         }  
@@ -113,7 +113,7 @@ public class CategoriaController {
     
     public VBox agregarinfo(int index){
         VBox vbtemp=new VBox();
-        LineaBlanca lb=this.articulos.get(index);
+        Articulo lb=this.articulos.get(index);
         Label nombre=new Label("Nombre:     "+lb.getNombre());
         Label marca=new Label("Marca:      "+lb.getMarca());
         Label color=new Label("Color:      "+lb.getDescripcion());

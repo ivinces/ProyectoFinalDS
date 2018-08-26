@@ -7,7 +7,7 @@ import javafx.scene.layout.HBox;
  * 
  */
 public class LineaBlancaView {
-    public LineaBlanca Model;
+    public Articulo Model;
     public HBox Pane;
     /**
      * Default constructor
@@ -19,7 +19,7 @@ public class LineaBlancaView {
     /**
      * @param model
      */
-    public void LineaBlancaView(LineaBlanca model) {
+    public void LineaBlancaView(Articulo model) {
         // TODO implement here
     }
 

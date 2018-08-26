@@ -18,7 +18,7 @@ import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
 import Controller.ReportesController;
 import Model.Clientes;
-import Model.LineaBlancaAF;
+import Model.Articulo;
 import Model.iVendedor;
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -131,7 +131,7 @@ public class ReportesView {
         TableColumn<Map, String> telefono = new TableColumn("Telefono");
         TableColumn<Map, String> montoPromedioMensual = new TableColumn("Monto promedio mensual del último trimestre");
         tv.getColumns().addAll(id, nombres, direccion, telefono, montoPromedioMensual);
-        ArrayList<LineaBlancaAF> list= new ReportesController().BuscaArticulos();
+        ArrayList<Articulo> list= new ReportesController().BuscaArticulos();
         tv = new TableView(generateDataInMapArticulos(list));
         vboton.getChildren().addAll(lbreporte,tv);
     }
@@ -172,7 +172,7 @@ public class ReportesView {
         return allData;
     }
     
-    private ObservableList generateDataInMapArticulos(ArrayList<LineaBlancaAF> list) {        
+    private ObservableList generateDataInMapArticulos(ArrayList<Articulo> list) {        
         ObservableList<Map> allData = FXCollections.observableArrayList();
             for (int i = 0; i < list.size(); i++) {
                 Map<String, String> dataRow = new HashMap<>();

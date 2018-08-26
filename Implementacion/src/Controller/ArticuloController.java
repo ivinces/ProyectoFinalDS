@@ -1,12 +1,12 @@
 package Controller;
+import Model.Articulo;
 import java.util.*;
-import Model.LineaBlanca;
 import View.LineaBlancaView;
 /**
  * 
  */
 public class ArticuloController {
-    public LineaBlanca Model;
+    public Articulo Model;
 
     /**
      * 
@@ -21,14 +21,14 @@ public class ArticuloController {
      * @param model 
      * @param view
      */
-    public ArticuloController(LineaBlanca model, LineaBlancaView view) {
+    public ArticuloController(Articulo model, LineaBlancaView view) {
         // TODO implement here
     }
 
     /**
      * @param model
      */
-    public void CrearArticulo(LineaBlanca model) {
+    public void CrearArticulo(Articulo model) {
         // TODO implement here
     }
 
