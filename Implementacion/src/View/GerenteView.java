@@ -36,15 +36,16 @@ public class GerenteView {
         lb.setAlignment(Pos.TOP_CENTER);
         lb.setUnderline(true);
         
-        Label productos=new Label("Productos");
-        productos.setAlignment(Pos.CENTER);
-        Button verp=new Button("Ver");
-        verp.setAlignment(Pos.CENTER);
-        verp.setOnAction(e->(new Productos_Privilegios_Controller()).verProducto(e, primaryStage));
-        VBox vbproductos=new VBox();
-        vbproductos.getChildren().addAll(productos,verp);
-        vbproductos.setAlignment(Pos.CENTER);
-        vbproductos.setSpacing(10);
+        VBox vbproductos=productos_gere();
+        VBox vbreporte=reporte_gere();
+      
+        Pane.getChildren().addAll(lb,vbproductos,vbreporte);
+        Pane.setAlignment(Pos.CENTER);
+        Pane.setSpacing(10);
+    }
+    
+    
+    public VBox reporte_gere(){
         
         Label reporte=new Label("Reportes");
         reporte.setAlignment(Pos.CENTER);
@@ -55,13 +56,24 @@ public class GerenteView {
         vbreporte.getChildren().addAll(reporte,reportev);
         vbreporte.setAlignment(Pos.CENTER);
         vbreporte.setSpacing(10);
-        
-        Pane.getChildren().addAll(lb,vbproductos,vbreporte);
-        Pane.setAlignment(Pos.CENTER);
-        Pane.setSpacing(10);
+    
+        return vbreporte;
     }
     
+    public VBox productos_gere(){
     
+        Label productos=new Label("Productos");
+        productos.setAlignment(Pos.CENTER);
+        Button verp=new Button("Ver");
+        verp.setAlignment(Pos.CENTER);
+        verp.setOnAction(e->(new Productos_Privilegios_Controller()).verProducto(e, primaryStage));
+        VBox vbproductos=new VBox();
+        vbproductos.getChildren().addAll(productos,verp);
+        vbproductos.setAlignment(Pos.CENTER);
+        vbproductos.setSpacing(10);
+        
+        return vbproductos;
+    }
     
     /**
      * @param model
