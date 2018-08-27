@@ -22,7 +22,7 @@ public class ReportesController {
     public ProcesosDB pdb;
     
     public ReportesController(){
-        pdb.conectar("jdbc:microsoft:sqlserver://localhost:1433;DatabaseName=MyDatabase");
+        pdb.conectar();
     }
         
     public ArrayList<Articulo> BuscaArticulos() throws SQLException {

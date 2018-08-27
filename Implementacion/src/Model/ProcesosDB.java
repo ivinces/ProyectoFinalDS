@@ -24,10 +24,10 @@ public class ProcesosDB {
     public ProcesosDB(){
     }
     
-    public void conectar(String conex){
+    public void conectar(){
         try {
             System.out.println("ENTRO XD");
-            m_Connection=DriverManager.getConnection(conex);
+            m_Connection=DriverManager.getConnection("jdbc:sqlserver://localhost:1433;database=Name;integratedSecurity=true;");
             System.out.println("HIZO ALGO XDDD");
         } catch (SQLException ex) {
             Logger.getLogger(ProcesosDB.class.getName()).log(Level.SEVERE, null, ex);

@@ -28,7 +28,7 @@ public class Nombre extends BusquedaArticulo {
     
     @Override
     public void Buscar() {
-            c.conectar("jdbc:sqlserver://localhost:1433;database=Name;integratedSecurity=true;");
+            c.conectar();
             String query = "SELECT DISTINCT Nombre FROM Articulo,Cocina,Lavadora,Refrigeradora"
                     + "WHERE Articulo.IDArticulos=Cocina.IDArticulos AND Articulo.IDArticulos=Lavadora.IDArticulos "
                     + "AND WHERE Articulo.IDArticulos=Refrigeradora.IDArticulos";
