@@ -68,16 +68,9 @@ public class ReportesView {
         VBox vbreportes=new VBox();
         vbreportes.getChildren().addAll(bbuscar);
         Pane.getChildren().addAll(vbreportes);
-        Stage stage=new Stage();
         VBox vboton= new VBox();
-        bbuscar.setOnAction((e)->{buscar(e,stage,vboton);});
-        Scene scene = new Scene(vboton, 300, 300);
-        stage.setTitle("Reportes");
-        stage.setScene(scene);
-        stage.show();
+        bbuscar.setOnAction((e)->{buscar(e,primaryStage,vboton);});
     }
-    
-    
     
     public void buscar(ActionEvent e, Stage primarystage, VBox vboton){
         String tipoBusqueda=(String)this.cmb.getSelectionModel().getSelectedItem();

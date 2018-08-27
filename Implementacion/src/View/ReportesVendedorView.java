@@ -50,6 +50,7 @@ public class ReportesVendedorView {
         ArrayList<iVendedor> list= new ReportesController().BuscaVendedor();
         tv = new TableView(generateDataInMapVendedor(list));
         vboton.getChildren().addAll(lbreporte,tv);
+        Pane.getChildren().add(vboton);
     }
     
     private ObservableList generateDataInMapVendedor(ArrayList<iVendedor> list) {        

@@ -52,6 +52,7 @@ public class ReportesArticuloView {
         ArrayList<Ventas> list2= new ReportesController().BuscaVentas();
         tv = new TableView(generateDataInMapArticulos(list,list2));
         vboton.getChildren().addAll(lbreporte,tv);
+        Pane.getChildren().add(vboton);
     }
     
     private ObservableList generateDataInMapArticulos(ArrayList<Articulo> list, ArrayList<Ventas> list2) {        
