@@ -41,7 +41,7 @@ public class ReportesController {
             Format formatter = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
             String fechaQ=formatter.format(fecha);
             String fechaAct=formatter.format(new Date());
-            String query = "SELECT Articulos.IDArticulos, Nombre.IDArticulos, COUNT(Ventas.IDArticulos) AS CantidadVentas, SUM(Articulos.Precio) AS VentasTotalesUSD FROM Lavadora, Refrigeradora, Cocina, Ventas, Articulos WHERE Articulos.IDArticulos=Refrigeradora.IDArticulos AND Articulos.IDArticulos=Lavadora.IDArticulos AND Articulos.IDArticulos=Cocina.IDArticulos AND Articulos.IDArticulos=Ventas.IDArticulos AND Fecha BETWEEN "+fechaQ+" AND "+fechaAct;
+            String query = "SELECT Articulos.IDArticulos, Articulos.Nombre, COUNT(Ventas.IDArticulos) AS CantidadVentas, SUM(Articulos.Precio) AS VentasTotalesUSD FROM Lavadora, Refrigeradora, Cocina, Ventas, Articulos WHERE Articulos.IDArticulos=Refrigeradora.IDArticulos AND Articulos.IDArticulos=Lavadora.IDArticulos AND Articulos.IDArticulos=Cocina.IDArticulos AND Articulos.IDArticulos=Ventas.IDArticulos AND Ventas.Fecha BETWEEN "+fechaQ+" AND "+fechaAct;
             PreparedStatement pstmt=m_Connection.prepareStatement(query);
             ResultSet m_ResultSet = pstmt.executeQuery();
             Articulo art;
@@ -69,6 +69,28 @@ public class ReportesController {
         return larticulo;
     }
     
+    public ArrayList<Ventas> BuscaVentas() {
+        ArrayList<Ventas> lventas=new ArrayList<>();
+        try {
+            m_Connection = DriverManager.getConnection(
+                    "jdbc:microsoft:sqlserver://localhost:1433;DatabaseName=MyDatabase", "userid", "password");
+            Date fecha=new Date(new Date().getTime()+TimeUnit.DAYS.toMillis(7));
+            Format formatter = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+            String fechaQ=formatter.format(fecha);
+            String fechaAct=formatter.format(new Date());
+            String query = "SELECT Ventas.PrecioFinal, Ventas.Cantidad, Articulos.Nombre, Ventas.Fecha  FROM Lavadora, Refrigeradora, Cocina, Ventas, Articulos WHERE Articulos.IDArticulos=Refrigeradora.IDArticulos AND Articulos.IDArticulos=Lavadora.IDArticulos AND Articulos.IDArticulos=Cocina.IDArticulos AND Articulos.IDArticulos=Ventas.IDArticulos AND Ventas.Fecha BETWEEN "+fechaQ+" AND "+fechaAct;
+            PreparedStatement pstmt=m_Connection.prepareStatement(query);
+            ResultSet m_ResultSet = pstmt.executeQuery();
+            Articulo art;
+            Date fechaVent=new Date(m_ResultSet.getString("Fecha"));
+            Ventas vent=new Ventas(m_ResultSet.getString("Nombre"),Integer.parseInt(m_ResultSet.getString("Cantidad")),fechaVent,Float.parseFloat(m_ResultSet.getString("PrecioFinal")));
+            lventas.add(vent);
+        } 
+        catch (SQLException ex) {
+        }
+        return lventas;
+    }
+    
     public ArrayList<iVendedor> BuscaVendedor() {
         ArrayList<iVendedor> lvendedor=new ArrayList<>();
         try {
@@ -78,7 +100,7 @@ public class ReportesController {
             Format formatter = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
             String fechaQ=formatter.format(fecha);
             String fechaAct=formatter.format(new Date());
-            String query = "SELECT Vendedor.IDVendedor, Vendedor.Nombre, Vendedor.Apellido, COUNT(Ventas.IDVentas) AS CantidadVentas, SUM(Articulos.Precio) AS VentasTotalesUSD FROM Vendedor, Ventas, Articulos WHERE Vendedor.IDVendedor=Ventas.IDVendedor AND Articulos.IDArticulos=Ventas.IDArticulos AND Fecha BETWEEN "+fechaQ+" AND "+fechaAct;
+            String query = "SELECT Vendedor.IDVendedor, Vendedor.Nombre, Vendedor.Apellido, COUNT(Ventas.IDVentas) AS CantidadVentas, SUM(Articulos.Precio) AS VentasTotalesUSD FROM Vendedor, Ventas, Articulos WHERE Vendedor.IDVendedor=Ventas.IDVendedor AND Articulos.IDArticulos=Ventas.IDArticulos AND Ventas.Fecha BETWEEN "+fechaQ+" AND "+fechaAct;
             PreparedStatement pstmt=m_Connection.prepareStatement(query);
             ResultSet m_ResultSet = pstmt.executeQuery();
             if (m_ResultSet.next()){
@@ -101,7 +123,7 @@ public class ReportesController {
             Format formatter = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
             String fechaQ=formatter.format(fecha);
             String fechaAct=formatter.format(new Date());
-            String query = "SELECT Cliente.IDCliente, Cliente.Nombre, Cliente.Apellido, Cliente.Direccion, Cliente.Telefono, AVG(Articulos.Precio) AS MontoPromedio FROM Cliente, Ventas, Articulos WHERE Vendedor.IDVendedor=Ventas.IDVendedor AND Articulos.IDArticulos=Ventas.IDArticulos AND Fecha BETWEEN "+fechaQ+" AND "+fechaAct;
+            String query = "SELECT Cliente.IDCliente, Cliente.Nombre, Cliente.Apellido, Cliente.Direccion, Cliente.Telefono, AVG(Articulos.Precio) AS MontoPromedio FROM Cliente, Ventas, Articulos WHERE Vendedor.IDVendedor=Ventas.IDVendedor AND Articulos.IDArticulos=Ventas.IDArticulos AND Ventas.Fecha BETWEEN "+fechaQ+" AND "+fechaAct;
             PreparedStatement pstmt=m_Connection.prepareStatement(query);
             ResultSet m_ResultSet = pstmt.executeQuery();
             if (m_ResultSet.next()){

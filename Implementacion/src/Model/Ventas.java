@@ -5,16 +5,25 @@ import java.util.*;
  * 
  */
 public class Ventas {
+    private String articulo;
     private int cantidadVentas;
-    private String id;
     private Date Fecha;
     private Float Precio;
 
-    public Ventas(int cantidadVentas, String id, Date Fecha, Float Precio) {
+    public Ventas(String articulo,int cantidadVentas, Date Fecha, Float Precio) {
+        this.articulo=articulo;
         this.cantidadVentas = cantidadVentas;
-        this.id = id;
         this.Fecha = Fecha;
         this.Precio = Precio;
+    }
+
+
+    public String getArticulo() {
+        return articulo;
+    }
+
+    public void setArticulo(String articulo) {
+        this.articulo = articulo;
     }
 
     public int getCantidadVentas() {
@@ -23,14 +32,6 @@ public class Ventas {
 
     public void setCantidadVentas(int cantidadVentas) {
         this.cantidadVentas = cantidadVentas;
-    }
-
-    public String getId() {
-        return id;
-    }
-
-    public void setId(String id) {
-        this.id = id;
     }
 
     public Date getFecha() {

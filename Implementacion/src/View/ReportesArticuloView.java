@@ -8,6 +8,7 @@ package View;
 import Controller.ReportesController;
 import Model.Articulo;
 import Model.Clientes;
+import Model.Ventas;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
@@ -48,18 +49,25 @@ public class ReportesArticuloView {
         TableColumn<Map, String> ventaTotalUSD = new TableColumn<>("Ventas Totales en Dolares");
         tv.getColumns().addAll(id, cantidad, articulo, ventaTotalUSD);
         ArrayList<Articulo> list= new ReportesController().BuscaArticulos();
-        tv = new TableView(generateDataInMapArticulos(list));
+        ArrayList<Ventas> list2= new ReportesController().BuscaVentas();
+        tv = new TableView(generateDataInMapArticulos(list,list2));
         vboton.getChildren().addAll(lbreporte,tv);
     }
     
-    private ObservableList generateDataInMapArticulos(ArrayList<Articulo> list) {        
+    private ObservableList generateDataInMapArticulos(ArrayList<Articulo> list, ArrayList<Ventas> list2) {        
         ObservableList<Map> allData = FXCollections.observableArrayList();
             for (int i = 0; i < list.size(); i++) {
                 Map<String, String> dataRow = new HashMap<>();
                 String id = list.get(i).getId();
-                String cantidad = String.valueOf(list.get(i)());
+                String cantidad="0";
+                String ventaTotalUSD="0";
+                for (int j = 0; j < list2.size(); j++) {
+                    if(list.get(i).getNombre().equals(list2.get(j).getArticulo())){
+                        cantidad = String.valueOf(list2.get(j).getCantidadVentas());
+                        ventaTotalUSD = String.valueOf(list2.get(j).getPrecio());
+                    }
+                }
                 String articulo = list.get(i).getNombre();
-                String ventaTotalUSD = String.valueOf(list.get(i).getMontoTotalVentas());
                 dataRow.put("Id", id);
                 dataRow.put("Cantidad", cantidad);
                 dataRow.put("Articulo", articulo);
