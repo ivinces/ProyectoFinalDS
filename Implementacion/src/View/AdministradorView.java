@@ -38,6 +38,21 @@ public class AdministradorView {
         Label lb=new Label("Menu Administrador");
         lb.setAlignment(Pos.TOP_CENTER);
         lb.setUnderline(true);
+        
+        VBox vbproductos=productos_ad();
+        VBox vbventas=ventas_ad();
+        VBox vbreporte=reportes_ad();
+        HBox hb=new HBox();
+        hb.getChildren().addAll(vbproductos, vbventas);
+        hb.setAlignment(Pos.CENTER);
+        hb.setSpacing(30);
+        Pane.getChildren().addAll(lb,hb,vbreporte);
+        Pane.setAlignment(Pos.CENTER);
+        Pane.setSpacing(10);
+    
+    }
+    
+    public VBox productos_ad(){
         Label productos=new Label("Productos");
         productos.setAlignment(Pos.CENTER);
         Button ingresarp=new Button("Crear");
@@ -52,11 +67,31 @@ public class AdministradorView {
         Button borrarp=new Button("Eliminar");
         borrarp.setAlignment(Pos.CENTER);
         borrarp.setOnAction(e->(new Productos_Privilegios_Controller()).eliminarProducto(e));
+        
         VBox vbproductos=new VBox();
         vbproductos.getChildren().addAll(productos,ingresarp,verp,actualizarp,borrarp);
         vbproductos.setAlignment(Pos.CENTER);
         vbproductos.setSpacing(10);
+    
+        return vbproductos;
+    }
+    
+    public VBox reportes_ad(){
+    
+        Label reporte=new Label("Reportes");
+        reporte.setAlignment(Pos.CENTER);
+        Button reportev=new Button("Ver");
+        reportev.setAlignment(Pos.CENTER);
+        reportev.setOnAction(e->(new Repor_Privilegios_Controller()).verReportes(e,primaryStage));
+        VBox vbreporte=new VBox();
+        vbreporte.getChildren().addAll(reporte,reportev);
+        vbreporte.setAlignment(Pos.CENTER);
+        vbreporte.setSpacing(10);
         
+        return vbreporte;
+    } 
+    
+    public VBox ventas_ad(){
         
         Label ventas=new Label("Ventas");
         ventas.setAlignment(Pos.CENTER);
@@ -74,24 +109,6 @@ public class AdministradorView {
         vbventas.setAlignment(Pos.CENTER);
         vbventas.setSpacing(10);
         
-        Label reporte=new Label("Reportes");
-        reporte.setAlignment(Pos.CENTER);
-        Button reportev=new Button("Ver");
-        reportev.setAlignment(Pos.CENTER);
-        reportev.setOnAction(e->(new Repor_Privilegios_Controller()).verReportes(e,primaryStage));
-        VBox vbreporte=new VBox();
-        vbreporte.getChildren().addAll(reporte,reportev);
-        vbreporte.setAlignment(Pos.CENTER);
-        vbreporte.setSpacing(10);
-        
-        
-        HBox hb=new HBox();
-        hb.getChildren().addAll(vbproductos, vbventas);
-        hb.setAlignment(Pos.CENTER);
-        hb.setSpacing(30);
-        Pane.getChildren().addAll(lb,hb,vbreporte);
-        Pane.setAlignment(Pos.CENTER);
-        Pane.setSpacing(10);
-    
+        return vbventas;  
     }
 }

@@ -37,6 +37,29 @@ public class SuperAdministradorView {
         Label lb=new Label("Menu Super Administrador");
         lb.setAlignment(Pos.TOP_CENTER);
         lb.setUnderline(true);
+ 
+        VBox vbproductos=productos_sad();
+        VBox vbventas=ventas_sad();
+        VBox vbusuarios=usuarios_sad();
+        VBox vbreporte=reporte_sad();
+        
+        HBox hb=new HBox();
+        hb.getChildren().addAll(vbproductos, vbventas);
+        hb.setAlignment(Pos.CENTER);
+        hb.setSpacing(30);
+        
+        HBox hb2=new HBox();
+        hb2.getChildren().addAll(vbusuarios, vbreporte);
+        hb2.setAlignment(Pos.CENTER);
+        hb2.setSpacing(30);
+        
+        Pane.getChildren().addAll(lb,hb,hb2);
+        Pane.setAlignment(Pos.CENTER);
+        Pane.setSpacing(10);
+    
+    }
+    
+    public VBox productos_sad(){
         
         Label productos=new Label("Productos");
         productos.setAlignment(Pos.CENTER);
@@ -57,6 +80,12 @@ public class SuperAdministradorView {
         vbproductos.setAlignment(Pos.CENTER);
         vbproductos.setSpacing(10);
         
+        return vbproductos;
+    
+    }
+    
+    public VBox ventas_sad(){
+    
         Label ventas=new Label("Ventas");
         ventas.setAlignment(Pos.CENTER);
         Button ingresarv=new Button("Crear");
@@ -73,8 +102,13 @@ public class SuperAdministradorView {
         vbventas.setAlignment(Pos.CENTER);
         vbventas.setSpacing(10);
         
+        return vbventas;
+    }
+    
+    public VBox usuarios_sad(){
+    
         Label usuarios=new Label("Usuarios");
-        ventas.setAlignment(Pos.CENTER);
+        usuarios.setAlignment(Pos.CENTER);
         Button ingresaru=new Button("Crear");
         ingresaru.setAlignment(Pos.CENTER);
         ingresaru.setOnAction(e->(new Usuarios_Privilegios_Controller()).crearUsuario(e));
@@ -92,6 +126,11 @@ public class SuperAdministradorView {
         vbusuarios.setAlignment(Pos.CENTER);
         vbusuarios.setSpacing(10);
         
+        return vbusuarios;
+    }
+    
+    public VBox reporte_sad(){
+    
         Label reporte=new Label("Reportes");
         reporte.setAlignment(Pos.CENTER);
         Button reportev=new Button("Ver");
@@ -101,21 +140,9 @@ public class SuperAdministradorView {
         vbreporte.getChildren().addAll(reporte,reportev);
         vbreporte.setAlignment(Pos.CENTER);
         vbreporte.setSpacing(10);
-        
-        HBox hb=new HBox();
-        hb.getChildren().addAll(vbproductos, vbventas);
-        hb.setAlignment(Pos.CENTER);
-        hb.setSpacing(30);
-        
-        HBox hb2=new HBox();
-        hb2.getChildren().addAll(vbusuarios, vbreporte);
-        hb2.setAlignment(Pos.CENTER);
-        hb2.setSpacing(30);
-        
-        Pane.getChildren().addAll(lb,hb,hb2);
-        Pane.setAlignment(Pos.CENTER);
-        Pane.setSpacing(10);
     
+        return vbreporte;
     }
+    
 
 }
