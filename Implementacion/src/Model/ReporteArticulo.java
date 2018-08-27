@@ -19,7 +19,7 @@ public class ReporteArticulo extends Reportes {
     public ObservableList<String> getOptions() {
         ObservableList<String> olVend = null;
         for(Articulo art:this.lArticulos){
-            olVend.add(art.articulo);
+            olVend.add(art.nombre);
         }
         return olVend;
     }

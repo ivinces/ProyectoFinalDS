@@ -23,7 +23,7 @@ public class Main extends Application{
     @Override
     public void start(Stage primaryStage) throws Exception {
         //Inicio org = new Inicio(primaryStage);
-        VendedorView org= new  VendedorView(primaryStage);
+        VendedorView org= new VendedorView(primaryStage);
         Scene scene = new Scene(org.getPane(), 300, 300);
       
         primaryStage.setTitle("Linea Blanca S.A");

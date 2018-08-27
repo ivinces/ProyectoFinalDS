@@ -1,23 +1,19 @@
 package Model;
-import java.util.*;
 
 /**
  * 
  */
 public abstract class Articulo {
     public String id;
-    public String articulo;
-    public int cantidadVentas;
-    public float montoTotalVentas;
-    public String descripcion;
+    public String color;
     public String nombre;
     public String marca;
     
-    public Articulo(String id, String articulo, int cantidadVentas, float montoTotalVentas) {
+    public Articulo(String id, String nombre, String marca, String color) {
         this.id = id;
-        this.articulo = articulo;
-        this.cantidadVentas = cantidadVentas;
-        this.montoTotalVentas = montoTotalVentas;
+        this.nombre = nombre;
+        this.marca=marca;
+        this.color=color;
     }
     
     public Articulo() {
@@ -31,36 +27,12 @@ public abstract class Articulo {
         this.id = id;
     }
 
-    public String getArticulo() {
-        return articulo;
-    }
-
-    public void setArticulo(String articulo) {
-        this.articulo = articulo;
-    }
-
-    public int getCantidadVentas() {
-        return cantidadVentas;
-    }
-
-    public void setCantidadVentas(int cantidadVentas) {
-        this.cantidadVentas = cantidadVentas;
-    }
-
-    public float getMontoTotalVentas() {
-        return montoTotalVentas;
-    }
-
-    public void setMontoTotalVentas(float montoTotalVentas) {
-        this.montoTotalVentas = montoTotalVentas;
-    }
-
     public String getNombre() {
         return nombre;
     }
 
     public void setDescripcion(String descripcion) {
-        this.descripcion = descripcion;
+        this.color = descripcion;
     }
 
     public void setNombre(String nombre) {
@@ -68,7 +40,7 @@ public abstract class Articulo {
     }
 
     public String getDescripcion() {
-        return descripcion;
+        return color;
     }
 
     public void setMarca(String marca) {

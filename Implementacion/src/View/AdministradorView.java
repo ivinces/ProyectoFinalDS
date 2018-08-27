@@ -1,15 +1,11 @@
 package View;
-import Controller.PrivilegiosController;
 import Controller.Productos_Privilegios_Controller;
 import Controller.Repor_Privilegios_Controller;
 import Controller.Ventas_Privilegios_Controller;
 import Model.*;
-import java.util.*;
 import javafx.geometry.Pos;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
-import javafx.scene.control.TextField;
-import javafx.scene.layout.Border;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
 import javafx.stage.Stage;

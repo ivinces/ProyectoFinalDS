@@ -18,7 +18,7 @@ import java.util.logging.Logger;
 public class Conexion {
     private Connection m_Connection;
 
-    public Conexion() {
+    public Conexion(){
     }
     
     public void conectar(String conex){
@@ -27,9 +27,7 @@ public class Conexion {
         } catch (SQLException ex) {
             Logger.getLogger(Conexion.class.getName()).log(Level.SEVERE, null, ex);
         }
-    }
-
-    
+    }  
 
     public Connection getM_Connection() {
         return m_Connection;
