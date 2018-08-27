@@ -1,5 +1,9 @@
 package View;
+import Controller.Clientes_Privilegios_Controller;
+import Controller.Cotiza_Privilegios_Controller;
 import Controller.PrivilegiosController;
+import Controller.Productos_Privilegios_Controller;
+import Controller.Ventas_Privilegios_Controller;
 import Model.*;
 import java.util.*;
 import javafx.geometry.Pos;
@@ -38,10 +42,10 @@ public class VendedorView {
         productos.setAlignment(Pos.CENTER);
         Button verp=new Button("Ver");
         verp.setAlignment(Pos.CENTER);
-        verp.setOnAction(e->(new PrivilegiosController()).verProducto(e, primaryStage));
+        verp.setOnAction(e->(new Productos_Privilegios_Controller()).verProducto(e, primaryStage));
         Button actualizarp=new Button("Actualizar");
         actualizarp.setAlignment(Pos.CENTER);
-        actualizarp.setOnAction(e->(new PrivilegiosController()).actualizarProducto(e));
+        actualizarp.setOnAction(e->(new Productos_Privilegios_Controller()).actualizarProducto(e));
         VBox vbproductos=new VBox();
         vbproductos.getChildren().addAll(productos,verp,actualizarp);
         vbproductos.setAlignment(Pos.CENTER);
@@ -51,7 +55,7 @@ public class VendedorView {
         ventas.setAlignment(Pos.CENTER);
         Button ingresarv=new Button("Crear");
         ingresarv.setAlignment(Pos.CENTER);
-        ingresarv.setOnAction(e->(new PrivilegiosController()).crearVentas(e, primaryStage));
+        ingresarv.setOnAction(e->(new Ventas_Privilegios_Controller()).crearVentas(e, primaryStage));
         VBox vbventas=new VBox();
         vbventas.getChildren().addAll(ventas,ingresarv);
         vbventas.setAlignment(Pos.CENTER);
@@ -61,13 +65,13 @@ public class VendedorView {
         cliente.setAlignment(Pos.CENTER);
         Button verc=new Button("Ver");
         verc.setAlignment(Pos.CENTER);
-        verc.setOnAction(e->(new PrivilegiosController()).verClientes(e));
+        verc.setOnAction(e->(new Clientes_Privilegios_Controller()).verClientes(e));
         Button actualizarc=new Button("Actualizar");
         actualizarc.setAlignment(Pos.CENTER);
-        actualizarc.setOnAction(e->(new PrivilegiosController()).actualizarClientes(e));
+        actualizarc.setOnAction(e->(new Clientes_Privilegios_Controller()).actualizarClientes(e));
         Button crearc=new Button("Crear");
         crearc.setAlignment(Pos.CENTER);
-        crearc.setOnAction(e->(new PrivilegiosController()).crearClientes(e));
+        crearc.setOnAction(e->(new Clientes_Privilegios_Controller()).crearClientes(e));
         VBox vbcliente=new VBox();
         vbcliente.getChildren().addAll(cliente,verc,actualizarc,crearc);
         vbcliente.setAlignment(Pos.CENTER);
@@ -77,7 +81,7 @@ public class VendedorView {
         cotizaciones.setAlignment(Pos.CENTER);
         Button cotizacionesc=new Button("Crear");
         cotizacionesc.setAlignment(Pos.CENTER);
-        cotizacionesc.setOnAction(e->(new PrivilegiosController()).crearCotizacion(e, primaryStage));
+        cotizacionesc.setOnAction(e->(new Cotiza_Privilegios_Controller()).crearCotizacion(e, primaryStage));
         VBox vbcotizacion=new VBox();
         vbcotizacion.getChildren().addAll(cotizaciones,cotizacionesc);
         vbcotizacion.setAlignment(Pos.CENTER);

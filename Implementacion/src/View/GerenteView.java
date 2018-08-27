@@ -1,5 +1,7 @@
 package View;
 import Controller.PrivilegiosController;
+import Controller.Productos_Privilegios_Controller;
+import Controller.Repor_Privilegios_Controller;
 import Model.*;
 import java.util.*;
 import javafx.geometry.Pos;
@@ -38,7 +40,7 @@ public class GerenteView {
         productos.setAlignment(Pos.CENTER);
         Button verp=new Button("Ver");
         verp.setAlignment(Pos.CENTER);
-        verp.setOnAction(e->(new PrivilegiosController()).verProducto(e, primaryStage));
+        verp.setOnAction(e->(new Productos_Privilegios_Controller()).verProducto(e, primaryStage));
         VBox vbproductos=new VBox();
         vbproductos.getChildren().addAll(productos,verp);
         vbproductos.setAlignment(Pos.CENTER);
@@ -48,7 +50,7 @@ public class GerenteView {
         reporte.setAlignment(Pos.CENTER);
         Button reportev=new Button("Ver");
         reportev.setAlignment(Pos.CENTER);
-        reportev.setOnAction(e->(new PrivilegiosController()).verReportes(e,primaryStage));
+        reportev.setOnAction(e->(new Repor_Privilegios_Controller()).verReportes(e,primaryStage));
         VBox vbreporte=new VBox();
         vbreporte.getChildren().addAll(reporte,reportev);
         vbreporte.setAlignment(Pos.CENTER);
