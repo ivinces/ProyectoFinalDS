@@ -81,6 +81,7 @@ public class ReportesView {
     }
     
     public void buscar(ActionEvent e, Stage primarystage, VBox vboton) throws SQLException{
+
         String tipoBusqueda=(String)this.cmb.getSelectionModel().getSelectedItem();
         tv.setEditable(true);
         if("Reportes por Ventas Vendedor".equals(tipoBusqueda)){
