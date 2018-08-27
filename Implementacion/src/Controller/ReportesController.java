@@ -41,7 +41,7 @@ public class ReportesController {
             Format formatter = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
             String fechaQ=formatter.format(fecha);
             String fechaAct=formatter.format(new Date());
-            String query = "SELECT Articulos.IDArticulos, Nombre, COUNT(Ventas.IDArticulos) AS CantidadVentas, SUM(Articulos.Precio) AS VentasTotalesUSD FROM Lavadora, Refrigeradora, Cocina, Ventas, Articulos WHERE Articulos.IDArticulos=Refrigeradora.IDArticulos AND Articulos.IDArticulos=Lavadora.IDArticulos AND Articulos.IDArticulos=Cocina.IDArticulos AND Articulos.IDArticulos=Ventas.IDArticulos AND Fecha BETWEEN "+fechaQ+" AND "+fechaAct;
+            String query = "SELECT Articulos.IDArticulos, Nombre.IDArticulos, COUNT(Ventas.IDArticulos) AS CantidadVentas, SUM(Articulos.Precio) AS VentasTotalesUSD FROM Lavadora, Refrigeradora, Cocina, Ventas, Articulos WHERE Articulos.IDArticulos=Refrigeradora.IDArticulos AND Articulos.IDArticulos=Lavadora.IDArticulos AND Articulos.IDArticulos=Cocina.IDArticulos AND Articulos.IDArticulos=Ventas.IDArticulos AND Fecha BETWEEN "+fechaQ+" AND "+fechaAct;
             PreparedStatement pstmt=m_Connection.prepareStatement(query);
             ResultSet m_ResultSet = pstmt.executeQuery();
             Articulo art;
