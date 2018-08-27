@@ -52,6 +52,8 @@ public class ReportesClienteView {
         ArrayList<Clientes> list= new ReportesController().BuscaClientes();
         tv = new TableView(generateDataInMapClientes(list));
         vboton.getChildren().addAll(lbreporte,tv);
+        Pane.getChildren().add(vboton);
+        
     }
     
     private ObservableList generateDataInMapClientes(ArrayList<Clientes> list) {        
