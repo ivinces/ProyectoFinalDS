@@ -7,6 +7,7 @@ package View;
 
 import Model.Reportes;
 import javafx.collections.ObservableList;
+import View.ReportesVendedorView;
 import javafx.event.ActionEvent;
 import javafx.geometry.Pos;
 import javafx.scene.control.Button;
@@ -42,20 +43,17 @@ public class ReportesView {
         return Pane;
     }
     
-    
-    /**
-     * Default constructor
-     */
     public ReportesView(Stage primaryStage) {
-        this.primaryStage=primaryStage;
         Pane=new VBox();
-    }
-    
-    
-    public void organize(){
         Label lbreporte=new Label("Reportes");
         lbreporte.setAlignment(Pos.CENTER);
         lbreporte.setUnderline(true);
+        this.primaryStage=primaryStage;
+        Pane.getChildren().addAll(lbreporte);
+        organize();
+    }
+    
+    public void organize(){
         Reportes rep = null;
         ObservableList<String> options = null;
         options.add("Reportes por Ventas Vendedor");
@@ -66,7 +64,7 @@ public class ReportesView {
         cmb=new ComboBox<>(opt);
         bbuscar=new Button("Buscar");
         bbuscar.setAlignment(Pos.CENTER);
-        Pane.getChildren().addAll(lbreporte,cmb);
+        Pane.getChildren().addAll(cmb);
         VBox vbreportes=new VBox();
         vbreportes.getChildren().addAll(bbuscar);
         Pane.getChildren().addAll(vbreportes);
@@ -79,114 +77,23 @@ public class ReportesView {
         stage.show();
     }
     
+    
+    
     public void buscar(ActionEvent e, Stage primarystage, VBox vboton){
         String tipoBusqueda=(String)this.cmb.getSelectionModel().getSelectedItem();
         tv.setEditable(true);
         if("Reportes por Ventas Vendedor".equals(tipoBusqueda)){
-            reportesVendedorView(vboton);
+            ReportesVendedorView rv=new ReportesVendedorView(primarystage);
+            rv.reportesVendedorView(vboton, tv);
         }
         else if("Reportes por Artículos".equals(tipoBusqueda)){
-            reportesArticuloView(vboton);
+            ReportesArticuloView ra=new ReportesArticuloView(primarystage);
+            ra.reportesArticuloView(vboton, tv);
         }
         else if("Reportes por Clientes".equals(tipoBusqueda)){
-            reportesClientesView(vboton);
+            ReportesClienteView rc=new ReportesClienteView(primarystage);
+            rc.reportesClientesView(vboton, tv);
         }
-    }
-
-    public void reportesVendedorView(VBox vboton){
-        Label lbreporte=new Label("Reportes Vendores");
-        lbreporte.setAlignment(Pos.CENTER);
-        lbreporte.setUnderline(true);
-        TableColumn<Map, String> id = new TableColumn<>("Id");
-        TableColumn<Map, String> vendedor = new TableColumn<>("Vendedor");
-        TableColumn<Map, String> cantidadVentas = new TableColumn<>("Cantidad Ventas");
-        TableColumn<Map, String> montoTotalVentas = new TableColumn<>("Monto Total de Ventas");
-        tv.getColumns().addAll(id, vendedor, cantidadVentas, montoTotalVentas);
-        ArrayList<iVendedor> list= new ReportesController().BuscaVendedor();
-        tv = new TableView(generateDataInMapVendedor(list));
-        vboton.getChildren().addAll(lbreporte,tv);
-    }
-    
-    public void reportesArticuloView(VBox vboton){
-        Label lbreporte=new Label("Reportes Articulos");
-        lbreporte.setAlignment(Pos.CENTER);
-        lbreporte.setUnderline(true);
-        TableColumn<Map, String> id  = new TableColumn<>("Id");
-        TableColumn<Map, String> cantidad  = new TableColumn<>("Cantidad");
-        TableColumn<Map, String> articulo  = new TableColumn<>("Articulo");
-        TableColumn<Map, String> ventaTotalUSD = new TableColumn<>("Ventas Totales en Dolares");
-        tv.getColumns().addAll(id, cantidad, articulo, ventaTotalUSD);
-        ArrayList<Clientes> list= new ReportesController().BuscaClientes();
-        tv = new TableView(generateDataInMapClientes(list));
-        vboton.getChildren().addAll(lbreporte,tv);
-    }
-    
-    public void reportesClientesView(VBox vboton){
-        Label lbreporte=new Label("Reportes Clientes");
-        lbreporte.setAlignment(Pos.CENTER);
-        lbreporte.setUnderline(true);
-        TableColumn<Map, String> id = new TableColumn("Id");
-        TableColumn<Map, String> nombres = new TableColumn("Nombres");
-        TableColumn<Map, String> direccion = new TableColumn("Direccion");
-        TableColumn<Map, String> telefono = new TableColumn("Telefono");
-        TableColumn<Map, String> montoPromedioMensual = new TableColumn("Monto promedio mensual del último trimestre");
-        tv.getColumns().addAll(id, nombres, direccion, telefono, montoPromedioMensual);
-        ArrayList<Articulo> list= new ReportesController().BuscaArticulos();
-        tv = new TableView(generateDataInMapArticulos(list));
-        vboton.getChildren().addAll(lbreporte,tv);
-    }
-    
-    private ObservableList generateDataInMapVendedor(ArrayList<iVendedor> list) {        
-        ObservableList<Map> allData = FXCollections.observableArrayList();
-            for (int i = 0; i < list.size(); i++) {
-                Map<String, String> dataRow = new HashMap<>();
-                String id = list.get(i).getId();
-                String vendedor = list.get(i).getNombre()+" "+list.get(i).getApellido();
-                String cantVentas = String.valueOf(list.get(i).getCantidadVentas());
-                String montoTotal = String.valueOf(list.get(i).getVentasTotalesUSD());
-                dataRow.put("Id", id);
-                dataRow.put("Vendedor", vendedor);
-                dataRow.put("Cantidad Ventas", cantVentas);
-                dataRow.put("Monto Total de Ventas", montoTotal);
-                allData.add(dataRow);
-        }
-        return allData;
-    }
-    
-    private ObservableList generateDataInMapClientes(ArrayList<Clientes> list) {        
-        ObservableList<Map> allData = FXCollections.observableArrayList();
-            for (int i = 0; i < list.size(); i++) {
-                Map<String, String> dataRow = new HashMap<>();
-                String id = list.get(i).getId();
-                String nombres = list.get(i).getNombres()+" "+list.get(i).getApellidos();
-                String direccion = list.get(i).getDireccion();
-                String telefono = list.get(i).getTelefono();
-                String montoPromedioMensual = String.valueOf(list.get(i).getMontoPromedio());
-                dataRow.put("Id", id);
-                dataRow.put("Nombres", nombres);
-                dataRow.put("Direccion", direccion);
-                dataRow.put("Telefono", telefono);
-                dataRow.put("Monto promedio mensual del último trimestre", montoPromedioMensual);
-                allData.add(dataRow);
-        }
-        return allData;
-    }
-    
-    private ObservableList generateDataInMapArticulos(ArrayList<Articulo> list) {        
-        ObservableList<Map> allData = FXCollections.observableArrayList();
-            for (int i = 0; i < list.size(); i++) {
-                Map<String, String> dataRow = new HashMap<>();
-                String id = list.get(i).getId();
-                String cantidad = String.valueOf(list.get(i).getCantidadVentas());
-                String articulo = list.get(i).getArticulo();
-                String ventaTotalUSD = String.valueOf(list.get(i).getMontoTotalVentas());
-                dataRow.put("Id", id);
-                dataRow.put("Cantidad", cantidad);
-                dataRow.put("Articulo", articulo);
-                dataRow.put("Ventas Totales en Dolares", ventaTotalUSD);
-                allData.add(dataRow);
-        }
-        return allData;
     }
     
 }
