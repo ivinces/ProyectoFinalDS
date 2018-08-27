@@ -32,15 +32,15 @@ public class Nombre extends BusquedaArticulo {
             String query = "SELECT DISTINCT Nombre FROM Articulo,Cocina,Lavadora,Refrigeradora"
                     + "WHERE Articulo.IDArticulos=Cocina.IDArticulos AND Articulo.IDArticulos=Lavadora.IDArticulos "
                     + "AND WHERE Articulo.IDArticulos=Refrigeradora.IDArticulos";
-            obtenerSet(query);
-            llenarSet();
+            ResultSet rs= c.obtenerSet(query);
+            llenarSet(rs);
     }
 
     @Override
-    public void llenarSet() {
+    public void llenarSet(ResultSet rs) {
         try {
-            while(m_ResultSet.next()){
-                options.add(m_ResultSet.getString("Nombre"));
+            while(rs.next()){
+                options.add(rs.getString("Nombre"));
                 
             }   } catch (SQLException ex) {
             Logger.getLogger(Categoria.class.getName()).log(Level.SEVERE, null, ex);

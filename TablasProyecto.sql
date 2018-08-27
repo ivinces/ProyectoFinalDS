@@ -151,6 +151,7 @@ CONSTRAINT CHKTipo CHECK (Tipo='Efectivo' OR Tipo='Visa'),
 CREATE TABLE Ventas(
 IDVentas int NOT NULL,
 PrecioFinal float,
+Cantidad int,
 Fecha date,
 IDPago int NOT NULL,
 IDArticulos int NOT NULL,
@@ -276,6 +277,6 @@ INSERT INTO"Pago" ("IDPago", "Tipo", "ValorPagado", "Saldo", "IDTrans", "IDVende
 INSERT INTO Cotizaciones ("IDCotizacion", "PrecioFinal", "IDArticulos", "IDTrans", "IDVendedor") VALUES
 (1,	279.98999,	8,	3,	3)
 
-INSERT INTO Ventas("IDVentas", "PrecioFinal", "IDPago", "IDArticulos", "IDTrans", "IDVendedor", "Fecha", "IDCliente") VALUES
-(1	,671.98999	,1	,3	,1	,1	,'2018-08-17'	,1),
-(2	,279.98999	,2	,8	,2	,3	,'2018-08-18'	,2)
+INSERT INTO Ventas("IDVentas", "PrecioFinal","Cantidad", "IDPago", "IDArticulos", "IDTrans", "IDVendedor", "Fecha", "IDCliente") VALUES
+(1	,671.98999	,20,1	,3	,1	,1	,'2018-08-17'	,1),
+(2	,279.98999	,32,2	,8	,2	,3	,'2018-08-18'	,2)

@@ -15,7 +15,7 @@ public class Cocina extends Articulo {
         super.setNombre("Cocina");
     }
 
-    public Cocina(String string, String string0, int parseInt, float parseFloat) {
+    public Cocina(String string, String string0) {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 

@@ -7,24 +7,15 @@ package View;
 
 import Model.Reportes;
 import javafx.collections.ObservableList;
-import View.ReportesVendedorView;
 import javafx.event.ActionEvent;
 import javafx.geometry.Pos;
 import javafx.scene.control.Button;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.Label;
-import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
-import Controller.ReportesController;
-import Model.Clientes;
-import Model.Articulo;
-import Model.iVendedor;
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.Map;
-import javafx.collections.FXCollections;
+import java.sql.SQLException;
 import javafx.scene.Scene;
 
 /**
@@ -70,7 +61,11 @@ public class ReportesView {
         Pane.getChildren().addAll(vbreportes);
         Stage stage=new Stage();
         VBox vboton= new VBox();
-        bbuscar.setOnAction((e)->{buscar(e,stage,vboton);});
+        bbuscar.setOnAction((e)->{try {
+            buscar(e,stage,vboton);
+            } catch (SQLException ex) {
+            }
+        });
         Scene scene = new Scene(vboton, 300, 300);
         stage.setTitle("Reportes");
         stage.setScene(scene);
@@ -79,7 +74,7 @@ public class ReportesView {
     
     
     
-    public void buscar(ActionEvent e, Stage primarystage, VBox vboton){
+    public void buscar(ActionEvent e, Stage primarystage, VBox vboton) throws SQLException{
         String tipoBusqueda=(String)this.cmb.getSelectionModel().getSelectedItem();
         tv.setEditable(true);
         if("Reportes por Ventas Vendedor".equals(tipoBusqueda)){

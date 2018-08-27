@@ -8,6 +8,7 @@ package View;
 import Controller.ReportesController;
 import Model.Articulo;
 import Model.Clientes;
+import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
@@ -38,7 +39,7 @@ public class ReportesClienteView {
         Pane.getChildren().add(label);
     }
     
-    public void reportesClientesView(VBox vboton,TableView tv){
+    public void reportesClientesView(VBox vboton,TableView tv) throws SQLException{
         Label lbreporte=new Label("Reportes Clientes");
         lbreporte.setAlignment(Pos.CENTER);
         lbreporte.setUnderline(true);
