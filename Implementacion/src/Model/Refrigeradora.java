@@ -13,7 +13,7 @@ public class Refrigeradora extends Articulo {
         super.setNombre("Refrigeradora");
     }
 
-    public Refrigeradora(String string, String string0, int parseInt, float parseFloat) {
+    public Refrigeradora(String string, String string0) {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 

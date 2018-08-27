@@ -14,26 +14,16 @@ import javafx.collections.ObservableList;
 public abstract class BusquedaArticulo implements Busqueda {
 
     ObservableList<String> options;
-    Conexion c;
-    ResultSet m_ResultSet;
+    ProcesosDB c;
     /**
      * Default constructor
      */
     public BusquedaArticulo() {
         options =FXCollections.observableArrayList();
-        c=new Conexion();
+        c=new ProcesosDB();
     }
     
-    public void obtenerSet(String query){
-        PreparedStatement pstmt;
-        try {
-            pstmt = c.getM_Connection().prepareStatement(query);
-            m_ResultSet = pstmt.executeQuery();
-        } catch (SQLException ex) {
-            Logger.getLogger(Conexion.class.getName()).log(Level.SEVERE, null, ex);
-        }
-    }
-    public abstract void llenarSet();
+    public abstract void llenarSet(ResultSet rs);
     
     
     public abstract ObservableList<String> getOptions();

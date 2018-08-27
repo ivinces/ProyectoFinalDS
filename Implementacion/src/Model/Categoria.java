@@ -1,5 +1,5 @@
 package Model;
-import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -11,12 +11,12 @@ import javafx.collections.ObservableList;
 public class Categoria extends BusquedaArticulo {
     @Override
     public void Buscar() {
-        c.conectar("jdbc:microsoft:sqlserver://localhost:1433;DatabaseName=ProyectoDS");
+        c.conectar("jdbc:sqlserver://localhost:1433;DatabaseName=ProyectoDS");
         String query = "SELECT DISTINCT Marca FROM Articulo,Cocina,Lavadora,Refrigeradora"
                     + "WHERE Articulo.IDArticulos=Cocina.IDArticulos AND Articulo.IDArticulos=Lavadora.IDArticulos "
                     + "AND WHERE Articulo.IDArticulos=Refrigeradora.IDArticulos";
-        obtenerSet(query);
-        llenarSet();
+        ResultSet rs=c.obtenerSet(query);
+        llenarSet(rs);
     }
 
     @Override
@@ -30,10 +30,10 @@ public class Categoria extends BusquedaArticulo {
     }
 
     @Override
-    public void llenarSet() {
+    public void llenarSet(ResultSet rs) {
         try {
-            while(m_ResultSet.next()){
-                options.add(m_ResultSet.getString("Categoría"));
+            while(rs.next()){
+                options.add(rs.getString("Categoría"));
                 
             }   } catch (SQLException ex) {
             Logger.getLogger(Categoria.class.getName()).log(Level.SEVERE, null, ex);

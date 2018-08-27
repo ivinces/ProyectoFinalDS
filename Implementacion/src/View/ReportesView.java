@@ -21,9 +21,12 @@ import Controller.ReportesController;
 import Model.Clientes;
 import Model.Articulo;
 import Model.iVendedor;
+import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javafx.collections.FXCollections;
 import javafx.scene.Scene;
 
@@ -68,18 +71,17 @@ public class ReportesView {
         VBox vbreportes=new VBox();
         vbreportes.getChildren().addAll(bbuscar);
         Pane.getChildren().addAll(vbreportes);
-        Stage stage=new Stage();
         VBox vboton= new VBox();
-        bbuscar.setOnAction((e)->{buscar(e,stage,vboton);});
-        Scene scene = new Scene(vboton, 300, 300);
-        stage.setTitle("Reportes");
-        stage.setScene(scene);
-        stage.show();
+        bbuscar.setOnAction((e)->{try {
+            buscar(e,primaryStage,vboton);
+            } catch (SQLException ex) {
+                Logger.getLogger(ReportesView.class.getName()).log(Level.SEVERE, null, ex);
+            }
+});
     }
     
-    
-    
-    public void buscar(ActionEvent e, Stage primarystage, VBox vboton){
+    public void buscar(ActionEvent e, Stage primarystage, VBox vboton) throws SQLException{
+
         String tipoBusqueda=(String)this.cmb.getSelectionModel().getSelectedItem();
         tv.setEditable(true);
         if("Reportes por Ventas Vendedor".equals(tipoBusqueda)){

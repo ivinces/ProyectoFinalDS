@@ -13,7 +13,7 @@ public class Lavadora extends Articulo {
         super.setNombre("Lavadora");
     }
 
-    public Lavadora(String string, String string0, int parseInt, float parseFloat) {
+    public Lavadora(String string, String string0) {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
