@@ -26,7 +26,9 @@ public class ProcesosDB {
     
     public void conectar(String conex){
         try {
+            System.out.println("ENTRO XD");
             m_Connection=DriverManager.getConnection(conex);
+            System.out.println("HIZO ALGO XDDD");
         } catch (SQLException ex) {
             Logger.getLogger(ProcesosDB.class.getName()).log(Level.SEVERE, null, ex);
         }

@@ -28,7 +28,7 @@ public class Nombre extends BusquedaArticulo {
     
     @Override
     public void Buscar() {
-            c.conectar("jdbc:sqlserver://;database=DB_Name;integratedSecurity=true;");
+            c.conectar("jdbc:sqlserver://localhost:1433;database=Name;integratedSecurity=true;");
             String query = "SELECT DISTINCT Nombre FROM Articulo,Cocina,Lavadora,Refrigeradora"
                     + "WHERE Articulo.IDArticulos=Cocina.IDArticulos AND Articulo.IDArticulos=Lavadora.IDArticulos "
                     + "AND WHERE Articulo.IDArticulos=Refrigeradora.IDArticulos";
@@ -40,7 +40,9 @@ public class Nombre extends BusquedaArticulo {
     public void llenarSet(ResultSet rs) {
         try {
             while(rs.next()){
-                options.add(rs.getString("Nombre"));
+                String datos=rs.getString("Nombre");
+                System.out.println(rs);
+                options.add(datos);
                 
             }   } catch (SQLException ex) {
             Logger.getLogger(Categoria.class.getName()).log(Level.SEVERE, null, ex);
