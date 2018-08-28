@@ -46,8 +46,10 @@ public class DescripcionView {
     public void organize(){
         Button buscar=new Button("Buscar");
         buscar.setAlignment(Pos.CENTER);
-        buscar.setOnAction(e-> (new DescripcionController()).buscar(e,Pane,primaryStage,cbdescripcion));
-        Pane.getChildren().add(buscar);
+        VBox get=new VBox();
+        get.getChildren().clear();
+        buscar.setOnAction(e-> (new DescripcionController()).buscar(e,get,primaryStage,cbdescripcion));
+        Pane.getChildren().addAll(buscar,get);
         Pane.setAlignment(Pos.TOP_CENTER);
         Pane.setSpacing(10);
     }

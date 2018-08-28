@@ -48,15 +48,17 @@ public class CategoriaView {
     public void organize(){
         Pane.getChildren().add(cbcategoria);
         Button buscar=new Button("Buscar");
+        VBox get=new VBox();
+        get.getChildren().clear();
         buscar.setAlignment(Pos.CENTER);
         buscar.setOnAction(e-> {
             try {
-                (new CategoriaController()).buscar(e,Pane,primaryStage,cbcategoria);
+                (new CategoriaController()).buscar(e,get,primaryStage,cbcategoria);
             } catch (SQLException ex) {
                 Logger.getLogger(CategoriaView.class.getName()).log(Level.SEVERE, null, ex);
             }
         });
-        Pane.getChildren().add(buscar);
+        Pane.getChildren().addAll(buscar,get);
         Pane.setAlignment(Pos.TOP_CENTER);
         Pane.setSpacing(10);
     

@@ -46,8 +46,11 @@ public class NombreView {
         Pane.getChildren().add(cbnombre);
         Button buscar=new Button("Buscar");
         buscar.setAlignment(Pos.CENTER);
-        buscar.setOnAction(e-> (new NombreController()).buscar(e,Pane,primaryStage,cbnombre));
-        Pane.getChildren().add(buscar);
+        VBox get=new VBox();
+        get.getChildren().clear();
+        buscar.setOnAction(e-> new NombreController().buscar(e,get,primaryStage,cbnombre));
+        
+        Pane.getChildren().addAll(buscar,get);
         Pane.setAlignment(Pos.TOP_CENTER);
         Pane.setSpacing(10);
     }

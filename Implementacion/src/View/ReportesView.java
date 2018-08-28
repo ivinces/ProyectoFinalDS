@@ -60,7 +60,7 @@ public class ReportesView {
         Reportes rep= new Reportes();
         ObservableList<String> options = FXCollections.observableArrayList();
         options.add("Reportes por Ventas Vendedor");
-        options.add("Reportes por Artículos");
+        options.add("Reportes por Articulos");
         options.add("Reportes por Clientes");
         rep.setOptions(options);
         ObservableList<String> opt=rep.getOptions();
@@ -87,7 +87,7 @@ public class ReportesView {
             ReportesVendedorView rv=new ReportesVendedorView(primarystage);
             rv.reportesVendedorView(vboton, tv, Pane);
         }
-        else if("Reportes por Artículos".equals(tipoBusqueda)){
+        else if("Reportes por Articulos".equals(tipoBusqueda)){
             ReportesArticuloView ra=new ReportesArticuloView(primarystage);
             ra.reportesArticuloView(vboton, tv,Pane);
         }

@@ -60,11 +60,11 @@ public class ReportesArticuloView {
         
         id.setCellValueFactory(new MapValueFactory("Id"));
         id.setMinWidth(100);
-        cantidad.setCellValueFactory(new MapValueFactory("Vendedor"));
+        cantidad.setCellValueFactory(new MapValueFactory("Cantidad"));
         cantidad.setMinWidth(100);
-        articulo.setCellValueFactory(new MapValueFactory("Cantidad Ventas"));
+        articulo.setCellValueFactory(new MapValueFactory("Articulo"));
         articulo.setMinWidth(100);
-        ventaTotalUSD.setCellValueFactory(new MapValueFactory("Monto Total de Ventas"));
+        ventaTotalUSD.setCellValueFactory(new MapValueFactory("Ventas Totales en Dolares"));
         ventaTotalUSD.setMinWidth(100);
         
         tv.getColumns().addAll(id, cantidad, articulo, ventaTotalUSD);
@@ -103,6 +103,7 @@ public class ReportesArticuloView {
                         ventaTotalUSD = String.valueOf(list2.get(j).getPrecio());
                     }
                 }
+                System.out.println(cantidad+"<<<<<<<<");
                 String articulo = list.get(i).getNombre();
                 dataRow.put("Id", id);
                 dataRow.put("Cantidad", cantidad);

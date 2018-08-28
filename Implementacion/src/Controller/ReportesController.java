@@ -56,8 +56,11 @@ public class ReportesController {
         ArrayList<Ventas> lventas=new ArrayList<>();
         String query = "SELECT Ventas.PrecioFinal, Ventas.Cantidad, Articulos.Nombre, Ventas.Fecha  FROM Ventas, Articulos WHERE Articulos.IDArticulos=Ventas.IDArticulos";
         ResultSet res= pdb.obtenerSet(query);
-        Ventas vent=new Ventas(res.getString("Nombre"),Integer.parseInt(res.getString("Cantidad")),Float.parseFloat(res.getString("PrecioFinal")));
-        lventas.add(vent);
+        while (res.next()){
+            System.out.println(res.getString("Nombre"));
+            Ventas vent=new Ventas(res.getString("Nombre"),Integer.parseInt(res.getString("Cantidad")),Float.parseFloat(res.getString("PrecioFinal")));
+            lventas.add(vent);
+        }
         return lventas;
     }
     
@@ -67,7 +70,7 @@ public class ReportesController {
         ResultSet res= pdb.obtenerSet(query);
         while (res.next()){
             iVendedor vend=new iVendedor(res.getString("IDVendedor"), res.getString("Nombre"), res.getString("Apellido"), Integer.parseInt(res.getString("CantidadVentas")),Float.parseFloat(res.getString("VentasTotalesUSD")), false);
-                lvendedor.add(vend);
+            lvendedor.add(vend);
         }
         return lvendedor;
     }
