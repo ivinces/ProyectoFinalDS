@@ -41,7 +41,11 @@ public class CocinaTest {
     public void marcaCocina() {
         Cocina c= new Cocina("1234","blanca","Cocinex","Durex",230.4f,"SuperEquip");
         assertEquals("Durex",c.getMarca());
-        
     }
     
+    public void createCocinaIguales() {
+        Cocina c= new Cocina("1234","blanca","Cocinex","Durex",230.4f,"SuperEquip");
+        Cocina c2= new Cocina("1234","blanca","Cocinex","Durex",230.4f,"SuperEquip");
+        assertNotSame(c,c2);
+    }
 }
