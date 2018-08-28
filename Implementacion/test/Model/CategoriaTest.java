@@ -69,4 +69,16 @@ public class CategoriaTest {
         assertFalse(instance.getOptions().contains("Honda"));
     }
     
+    public void testIndexElementos(){
+        Categoria instance = new Categoria();
+        instance.Buscar();
+        assertEquals(2,instance.getOptions().indexOf("Mabe"));
+        assertEquals(1,instance.getOptions().indexOf("Indurama"));
+    }
+    
+    public void testCantElementos(){
+        Categoria instance = new Categoria();
+        instance.Buscar();
+        assertEquals(3,instance.getOptions().size());
+    }
 }
