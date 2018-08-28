@@ -31,7 +31,7 @@ public class ReportesController {
         String query = "SELECT Articulos.IDArticulos, Articulos.Color, Articulos.Nombre, Articulos.Marca, Articulos.Precio, Articulos.modelo, COUNT(Ventas.IDArticulos) AS CantidadVentas, SUM(Articulos.Precio) AS VentasTotalesUSD FROM Lavadoras, Refrigeradoras, Cocinas, Ventas, Articulos WHERE Articulos.IDArticulos=Refrigeradoras.IDArticulos OR Articulos.IDArticulos=Lavadoras.IDArticulos OR Articulos.IDArticulos=Cocinas.IDArticulos AND Articulos.IDArticulos=Ventas.IDArticulos GROUP BY Articulos.IDArticulos";
         ResultSet res= pdb.obtenerSet(query);
         Articulo art;
-            /*while (res.next()){
+            while (res.next()){
                 switch (res.getString("Nombre")) {
                     case "Lavadora":
                         art=new Lavadora(res.getString("IDArticulos"), res.getString("Color"), res.getString("Nombre"), res.getString("Marca"), Float.parseFloat(res.getString("Precio")), res.getString("Modelo"));
@@ -48,7 +48,7 @@ public class ReportesController {
                     default:
                         break;
                 }   
-            }*/
+            }
         return larticulo;
     }
     
