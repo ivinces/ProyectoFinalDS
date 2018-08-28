@@ -56,17 +56,32 @@ public class ProcesosDBTest {
      * Test of obtenerSet method, of class ProcesosDB.
      */
     @Test
+    public void testObtenerSetVacio() throws SQLException {
+        System.out.println("obtenerSet");
+        String query = "SELECT DISTINCT Marca FROM Articulos";
+        ProcesosDB instance = new ProcesosDB();
+        instance.conectar();
+        ResultSet expResult = null;
+        ResultSet result = instance.obtenerSet(query);
+        System.out.println(result);
+        assertNotNull(result);
+        
+        // TODO review the generated test code and remove the default call to fail.
+    }
+    
     public void testObtenerSet() throws SQLException {
         System.out.println("obtenerSet");
         String query = "";
         ProcesosDB instance = new ProcesosDB();
+        instance.conectar();
         ResultSet expResult = null;
         ResultSet result = instance.obtenerSet(query);
-        assertTrue(result.next());
+        System.out.println(result);
+        assertNull(result);
         
         // TODO review the generated test code and remove the default call to fail.
     }
-
+    
     /**
      * Test of getM_Connection method, of class ProcesosDB.
      */
