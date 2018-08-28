@@ -13,6 +13,7 @@ CONSTRAINT CHKInternet CHECK (Internet=1 OR Internet=0)
 );
 CREATE TABLE Articulos(
 IDArticulos int NOT NULL,
+Nombre varchar(50),
 Marca varchar(50),
 Modelo varchar(50),
 Precio float,
@@ -183,15 +184,15 @@ INSERT INTO "Locales" ("IDLocales", "Nombre", "Direccion", "Telefono", "Internet
 (2,	'Sucursal','Calle 30',	'1800600500',	0),
 (3,	'Bodega',	'Calle 35',	'1800600400',	0)
 
-INSERT INTO Articulos (IDArticulos,Marca,Modelo,Precio,Color,IDLocales) VALUES
-(2,'Indurama','CU-0946',349.98999,	'Negro',	1),
-(1,'Indurama','CU-0945',249.990005,	'Blanco',	1),
-(3,'Durex','RE-8345',599.98999,'Gris',1),
-(4,'Durex','RE-8346',799.98999,'Negro',1),
-(5,'Mabe','LA-2345',689.98999,'Blanco',1),
-(6,'Mabe','LA-2346',789.98999,'Blanco',1),
-(7,'Mabe','LA-2347',349.98999,'Gris',1),
-(8,'Indurama','CU-0945',249.990005,'Blanco',2)
+INSERT INTO Articulos (IDArticulos,Nombre,Marca,Modelo,Precio,Color,IDLocales) VALUES
+(2,'Prueba1','Indurama','CU-0946',349.98999,	'Negro',	1),
+(1,'Prueba2','Indurama','CU-0945',249.990005,	'Blanco',	1),
+(3,'Prueba3','Durex','RE-8345',599.98999,'Gris',1),
+(4,'Prueba4','Durex','RE-8346',799.98999,'Negro',1),
+(5,'Prueba5','Mabe','LA-2345',689.98999,'Blanco',1),
+(6,'Prueba6','Mabe','LA-2346',789.98999,'Blanco',1),
+(7,'Prueba7','Mabe','LA-2347',349.98999,'Gris',1),
+(8,'Prueba8','Indurama','CU-0945',249.990005,'Blanco',2)
 
 INSERT INTO "Cocinas" ("IDCocina", "Induccion", "IDArticulos", "Nombre") VALUES
 (1,	1,	1,	'Cocina'),
