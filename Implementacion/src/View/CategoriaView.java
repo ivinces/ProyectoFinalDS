@@ -6,6 +6,9 @@
 package View;
 
 import Controller.CategoriaController;
+import java.sql.SQLException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javafx.collections.ObservableList;
 import javafx.geometry.Pos;
 import javafx.scene.control.Button;
@@ -46,7 +49,13 @@ public class CategoriaView {
         Pane.getChildren().add(cbcategoria);
         Button buscar=new Button("Buscar");
         buscar.setAlignment(Pos.CENTER);
-        buscar.setOnAction(e-> (new CategoriaController()).buscar(e,Pane,primaryStage,cbcategoria));
+        buscar.setOnAction(e-> {
+            try {
+                (new CategoriaController()).buscar(e,Pane,primaryStage,cbcategoria);
+            } catch (SQLException ex) {
+                Logger.getLogger(CategoriaView.class.getName()).log(Level.SEVERE, null, ex);
+            }
+        });
         Pane.getChildren().add(buscar);
         Pane.setAlignment(Pos.TOP_CENTER);
         Pane.setSpacing(10);
