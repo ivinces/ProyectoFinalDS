@@ -44,7 +44,6 @@ public class DescripcionView {
     }
     
     public void organize(){
-        Pane.getChildren().add(cbdescripcion);
         Button buscar=new Button("Buscar");
         buscar.setAlignment(Pos.CENTER);
         buscar.setOnAction(e-> (new DescripcionController()).buscar(e,Pane,primaryStage,cbdescripcion));

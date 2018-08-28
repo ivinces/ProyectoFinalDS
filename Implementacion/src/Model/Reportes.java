@@ -6,7 +6,7 @@ import javafx.collections.ObservableList;
 /**
  * 
  */
-public abstract class Reportes {
+public class Reportes {
     ObservableList<String> options;
     /**
      * Default constructor

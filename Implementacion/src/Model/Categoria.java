@@ -12,9 +12,7 @@ public class Categoria extends BusquedaArticulo {
     @Override
     public void Buscar() {
         c.conectar();
-        String query = "SELECT DISTINCT Marca FROM Articulo,Cocina,Lavadora,Refrigeradora"
-                    + "WHERE Articulo.IDArticulos=Cocina.IDArticulos AND Articulo.IDArticulos=Lavadora.IDArticulos "
-                    + "AND WHERE Articulo.IDArticulos=Refrigeradora.IDArticulos";
+        String query = "SELECT DISTINCT Marca FROM Articulos";
         ResultSet rs=c.obtenerSet(query);
         llenarSet(rs);
     }
@@ -33,7 +31,7 @@ public class Categoria extends BusquedaArticulo {
     public void llenarSet(ResultSet rs) {
         try {
             while(rs.next()){
-                options.add(rs.getString("Categoría"));
+                options.add(rs.getString("Marca"));
                 
             }   } catch (SQLException ex) {
             Logger.getLogger(Categoria.class.getName()).log(Level.SEVERE, null, ex);

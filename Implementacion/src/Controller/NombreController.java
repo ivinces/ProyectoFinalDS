@@ -10,6 +10,7 @@ import Model.Articulo;
 import Model.Cocina;
 import Model.Lavadora;
 import Model.Nombre;
+import Model.ProcesosDB;
 import Model.Refrigeradora;
 import View.CotizacionView;
 import View.VentaView;
@@ -41,6 +42,7 @@ public class NombreController {
     int index;
     VBox Pane;
     Stage primaryStage;
+    ProcesosDB c;
     
     public NombreController(){
         articulos=new LinkedList<>();
@@ -67,22 +69,21 @@ public class NombreController {
 
         Connection m_Connection;
         try {
-            m_Connection = DriverManager.getConnection(
-                    "jdbc:microsoft:sqlserver://localhost:1433;DatabaseName=ProyectoDS", "sa", "12345");
+            c.conectar();
             String query = "";
             switch (com) {
                 case "Cocina":
-                    query="SELECT * FROM Articulos,Cocina WHERE Articulo.IDArticulos=Cocina.IDArticulos";
+                    query="SELECT * FROM Articulos,Cocinas WHERE Articulos.IDArticulos=Cocinas.IDArticulos";
                     break;
                 case "Lavadora":
-                    query="SELECT * FROM Articulos,Lavadora WHERE Articulo.IDArticulos=Lavadora.IDArticulos";
+                    query="SELECT * FROM Articulos,Lavadoras WHERE Articulos.IDArticulos=Lavadoras.IDArticulos";
                     break;
                 default:
-                    query="SELECT * FROM Articulos,Refrigeradora WHERE Articulo.IDArticulos=Refrigeradora.IDArticulos";
+                    query="SELECT * FROM Articulos,Refrigeradoras WHERE Articulos.IDArticulos=Refrigeradoras.IDArticulos";
                     break;
             }
-            PreparedStatement pstmt=m_Connection.prepareStatement(query);
-            ResultSet m_ResultSet = pstmt.executeQuery();
+            
+            ResultSet m_ResultSet = c.obtenerSet(query);
             if (m_ResultSet.next()){
                 Articulo articulo;
                 switch (com) {

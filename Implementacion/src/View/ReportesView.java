@@ -57,8 +57,8 @@ public class ReportesView {
     }
     
     public void organize(){
-        Reportes rep = null;
-        ObservableList<String> options = null;
+        Reportes rep= new Reportes();
+        ObservableList<String> options = FXCollections.observableArrayList();
         options.add("Reportes por Ventas Vendedor");
         options.add("Reportes por Artículos");
         options.add("Reportes por Clientes");
@@ -83,10 +83,9 @@ public class ReportesView {
     public void buscar(ActionEvent e, Stage primarystage, VBox vboton) throws SQLException{
 
         String tipoBusqueda=(String)this.cmb.getSelectionModel().getSelectedItem();
-        tv.setEditable(true);
         if("Reportes por Ventas Vendedor".equals(tipoBusqueda)){
             ReportesVendedorView rv=new ReportesVendedorView(primarystage);
-            rv.reportesVendedorView(vboton, tv);
+            rv.reportesVendedorView(vboton, tv, Pane);
         }
         else if("Reportes por Artículos".equals(tipoBusqueda)){
             ReportesArticuloView ra=new ReportesArticuloView(primarystage);

@@ -16,10 +16,15 @@ import javafx.collections.ObservableList;
 import javafx.geometry.Pos;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.Label;
+import javafx.scene.control.TableCell;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
+import javafx.scene.control.cell.MapValueFactory;
+import javafx.scene.control.cell.TextFieldTableCell;
 import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
+import javafx.util.Callback;
+import javafx.util.StringConverter;
 
 /**
  *
@@ -39,7 +44,9 @@ public class ReportesVendedorView {
         Pane.getChildren().add(label);
     }
     
-    public void reportesVendedorView(VBox vboton,TableView tv) throws SQLException{
+    public void reportesVendedorView(VBox vboton,TableView tv, VBox Pane) throws SQLException{
+        tv=new TableView(this.generateDataInMapVendedor(new ReportesController().BuscaVendedor()));
+        tv.setEditable(true);
         Label lbreporte=new Label("Reportes Vendores");
         lbreporte.setAlignment(Pos.CENTER);
         lbreporte.setUnderline(true);
@@ -47,7 +54,35 @@ public class ReportesVendedorView {
         TableColumn<Map, String> vendedor = new TableColumn<>("Vendedor");
         TableColumn<Map, String> cantidadVentas = new TableColumn<>("Cantidad Ventas");
         TableColumn<Map, String> montoTotalVentas = new TableColumn<>("Monto Total de Ventas");
+        
+        id.setCellValueFactory(new MapValueFactory("Id"));
+        id.setMinWidth(100);
+        vendedor.setCellValueFactory(new MapValueFactory("Vendedor"));
+        vendedor.setMinWidth(100);
+        cantidadVentas.setCellValueFactory(new MapValueFactory("Cantidad Ventas"));
+        cantidadVentas.setMinWidth(100);
+        montoTotalVentas.setCellValueFactory(new MapValueFactory("Monto Total de Ventas"));
+        montoTotalVentas.setMinWidth(100);
+        
         tv.getColumns().addAll(id, vendedor, cantidadVentas, montoTotalVentas);
+        Callback<TableColumn<Map, String>, TableCell<Map, String>>
+            cellFactoryForMap = (TableColumn<Map, String> p) -> 
+                new TextFieldTableCell(new StringConverter() {
+                    @Override
+                        public String toString(Object t) {
+                        return t.toString();
+                    }
+                    @Override
+                    public Object fromString(String string) {
+                        return string;
+                    }
+            });
+        id.setCellFactory(cellFactoryForMap);
+        vendedor.setCellFactory(cellFactoryForMap);
+        cantidadVentas.setCellFactory(cellFactoryForMap);
+        montoTotalVentas.setCellFactory(cellFactoryForMap);
+        
+        
         ArrayList<iVendedor> list= new ReportesController().BuscaVendedor();
         tv = new TableView(generateDataInMapVendedor(list));
         vboton.getChildren().addAll(lbreporte,tv);
