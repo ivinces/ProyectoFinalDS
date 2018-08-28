@@ -48,7 +48,7 @@ public class CategoriaTest {
         Categoria instance = new Categoria();
         instance.Buscar();
         // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
+        //fail("The test case is a prototype.");
     }
 
 
@@ -57,11 +57,16 @@ public class CategoriaTest {
      */
     @Test
     public void testLlenarSet() {
-        System.out.println("llenarSet");
-        ResultSet rs = null;
         Categoria instance = new Categoria();
+        instance.c.conectar();
+        String query = "SELECT DISTINCT Marca FROM Articulos";
+        ResultSet rs= instance.c.obtenerSet(query);
         instance.llenarSet(rs);
-        assertTrue(instance.getOptions().contains(""));
+        assertTrue(instance.getOptions().contains("Indurama"));
+        assertTrue(instance.getOptions().contains("Durex"));
+        assertTrue(instance.getOptions().contains("Mabe"));
+        //
+        assertFalse(instance.getOptions().contains("Honda"));
     }
     
 }

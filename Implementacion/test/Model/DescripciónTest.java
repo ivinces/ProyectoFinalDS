@@ -60,7 +60,7 @@ public class DescripciónTest {
         Descripción instance = new Descripción();
         instance.setOptions(options);
         // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
+        //fail("The test case is a prototype.");
     }
 
     /**
@@ -72,7 +72,7 @@ public class DescripciónTest {
         Descripción instance = new Descripción();
         instance.Buscar();
         // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
+        //fail("The test case is a prototype.");
     }
 
     /**
@@ -80,11 +80,20 @@ public class DescripciónTest {
      */
     @Test
     public void testLlenarSet() {
-        System.out.println("llenarSet");
-        ResultSet rs = null;
-        Descripción instance = new Descripción();
+        Categoria instance = new Categoria();
+        instance.c.conectar();
+        String query = "SELECT DISTINCT Marca FROM Articulos";
+        ResultSet rs= instance.c.obtenerSet(query);
         instance.llenarSet(rs);
-        assertTrue(instance.getOptions().contains(""));
+        assertTrue(instance.getOptions().contains("Negro"));
+        assertTrue(instance.getOptions().contains("Blanco"));
+        assertTrue(instance.getOptions().contains("Gris"));
+        //no estan
+        assertFalse(instance.getOptions().contains("Verde"));
+        assertFalse(instance.getOptions().contains("Amarillo como el oro y el sol"));
+        assertFalse(instance.getOptions().contains("Azul como los oceanos y el cielo"));
+        assertFalse(instance.getOptions().contains("Rojo como la sangre de los heroes"));
+        
     }
     
 }
