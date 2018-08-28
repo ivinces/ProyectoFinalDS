@@ -11,6 +11,7 @@ import Model.Articulo;
 import Model.Cocina;
 import Model.Lavadora;
 import Model.Nombre;
+import Model.ProcesosDB;
 import Model.Refrigeradora;
 import View.CotizacionView;
 import View.VentaView;
@@ -43,10 +44,12 @@ public class DescripcionController {
     int index;
     VBox Pane;
     Stage primaryStage;
+    ProcesosDB pdb;
     
     public DescripcionController(){
         articulos=new LinkedList<>();
         vb=new VBox();
+        pdb=new ProcesosDB();
     }
 
     public LinkedList<Articulo> getArticulos() {
@@ -62,32 +65,29 @@ public class DescripcionController {
         this.Pane=pane;
         this.primaryStage=primaryStage;
         try {
-            Class.forName("com.microsoft.jdbc.sqlserver.SQLServerDriver");
-        } catch (ClassNotFoundException ex) {
-            Logger.getLogger(Nombre.class.getName()).log(Level.SEVERE, null, ex);
-        }
-
-        Connection m_Connection;
-        try {
-            m_Connection = DriverManager.getConnection(
-                    "jdbc:microsoft:sqlserver://localhost:1433;DatabaseName=ProyectoDS", "userid", "password");
+            pdb.conectar();
             String query = "SELECT * FROM Articulos,Cocina,Refrigeradora,Lavadora "
-                    + "WHERE Articulo.IDArticulos=Cocina.IDArticulos AND Articulo.IDArticulos=Lavadora.IDArticulos "
-                    + "AND WHERE Articulo.IDArticulos=Refrigeradora.IDArticulos AND Articulo.Color="+com;
-            PreparedStatement pstmt=m_Connection.prepareStatement(query);
-            ResultSet m_ResultSet = pstmt.executeQuery();
-            if (m_ResultSet.next()){
+                    + "WHERE Articulo.Color="+com;
+            
+            ResultSet r = pdb.obtenerSet(query);
+            if (r.next()){
                 Articulo articulo;
-                String nombre=m_ResultSet.getString("Nombre");
+                String nombre=r.getString("Nombre");
                 switch (nombre) {
                     case "Cocina":
-                        articulo=new Cocina();
+                        articulo=new Cocina(r.getString("IDArticulos"),r.getString("Color"),r.getString("Nombre"),r.getString("Marca"),
+                        Float.parseFloat(r.getString("Precio")),r.getString("Modelo"));
+                        articulos.add(articulo);
                         break;
                     case "Lavadora":
-                        articulo=new Lavadora();
+                        articulo=new Lavadora(r.getString("IDArticulos"),r.getString("Color"),r.getString("Nombre"),r.getString("Marca"),
+                        Float.parseFloat(r.getString("Precio")),r.getString("Modelo"));
+                        articulos.add(articulo);
                         break;
                     default:
-                        articulo=new Refrigeradora();
+                        articulo=new Refrigeradora(r.getString("IDArticulos"),r.getString("Color"),r.getString("Nombre"),r.getString("Marca"),
+                        Float.parseFloat(r.getString("Precio")),r.getString("Modelo"));
+                        articulos.add(articulo);
                         break;
                 }
                 /*String descripcion=m_ResultSet.getString("Color");
@@ -117,7 +117,7 @@ public class DescripcionController {
         Articulo lb=this.articulos.get(index);
         Label nombre=new Label("Nombre:     "+lb.getNombre());
         Label marca=new Label("Marca:      "+lb.getMarca());
-        Label color=new Label("Color:      "+lb.getDescripcion());
+        Label color=new Label("Color:      "+lb.getColor());
         
         venta=new Button("Hacer una venta");
         cotizacion=new Button("Hacer una cotizacion");

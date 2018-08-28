@@ -7,16 +7,14 @@ import java.util.*;
 public class Cocina extends Articulo {
     public boolean induccion;
     Articulo lb;
-    /**
-     * Default constructor
-     */
-    public Cocina() {
+
+
+    public Cocina(String id, String color, String nombre, String marca, float precio, String modelo) {
+        super(id, color, nombre, marca, precio, modelo);
         this.induccion=true;
-        super.setNombre("Cocina");
+
     }
 
-    public Cocina(String string, String string0) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
+
 
 }
