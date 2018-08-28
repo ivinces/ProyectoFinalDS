@@ -52,8 +52,7 @@ public class ReportesControllerTest {
         ArrayList<Articulo> expResult = null;
         ArrayList<Articulo> result = instance.BuscaArticulos();
         assertNotNull(result);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
+        
     }
 
     /**
@@ -65,9 +64,8 @@ public class ReportesControllerTest {
         ReportesController instance = new ReportesController();
         ArrayList<Ventas> expResult = null;
         ArrayList<Ventas> result = instance.BuscaVentas();
-        assertNull(result);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
+        assertFalse(result.isEmpty());
+        
     }
 
     /**
@@ -79,9 +77,8 @@ public class ReportesControllerTest {
         ReportesController instance = new ReportesController();
         ArrayList<iVendedor> expResult = null;
         ArrayList<iVendedor> result = instance.BuscaVendedor();
-        assertEquals(expResult, result);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
+        assertFalse(result.isEmpty());
+        
     }
 
     /**
@@ -93,9 +90,9 @@ public class ReportesControllerTest {
         ReportesController instance = new ReportesController();
         ArrayList<Clientes> expResult = null;
         ArrayList<Clientes> result = instance.BuscaClientes();
-        assertEquals(expResult, result);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
+        
+        assertNotNull(result);
+        
     }
     
 }

@@ -5,7 +5,6 @@
  */
 package Model;
 
-import java.sql.ResultSet;
 import javafx.collections.ObservableList;
 import org.junit.After;
 import org.junit.AfterClass;
@@ -59,8 +58,6 @@ public class NombreTest {
         ObservableList<String> options = null;
         Nombre instance = new Nombre();
         instance.setOptions(options);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
     }
     
 }

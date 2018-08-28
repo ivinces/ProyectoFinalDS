@@ -7,6 +7,7 @@ package Model;
 
 import java.sql.Connection;
 import java.sql.ResultSet;
+import java.sql.SQLException;
 import org.junit.After;
 import org.junit.AfterClass;
 import org.junit.Before;
@@ -48,49 +49,26 @@ public class ProcesosDBTest {
         ProcesosDB instance = new ProcesosDB();
         instance.conectar();
         // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
+        
     }
 
     /**
      * Test of obtenerSet method, of class ProcesosDB.
      */
     @Test
-    public void testObtenerSet() {
+    public void testObtenerSet() throws SQLException {
         System.out.println("obtenerSet");
         String query = "";
         ProcesosDB instance = new ProcesosDB();
         ResultSet expResult = null;
         ResultSet result = instance.obtenerSet(query);
-        assertEquals(expResult, result);
+        assertTrue(result.next());
+        
         // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
     }
 
     /**
      * Test of getM_Connection method, of class ProcesosDB.
      */
-    @Test
-    public void testGetM_Connection() {
-        System.out.println("getM_Connection");
-        ProcesosDB instance = new ProcesosDB();
-        Connection expResult = null;
-        Connection result = instance.getM_Connection();
-        assertEquals(expResult, result);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
-    }
-
-    /**
-     * Test of setM_Connection method, of class ProcesosDB.
-     */
-    @Test
-    public void testSetM_Connection() {
-        System.out.println("setM_Connection");
-        Connection m_Connection = null;
-        ProcesosDB instance = new ProcesosDB();
-        instance.setM_Connection(m_Connection);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
-    }
     
 }

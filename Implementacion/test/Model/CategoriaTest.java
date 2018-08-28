@@ -51,32 +51,6 @@ public class CategoriaTest {
         fail("The test case is a prototype.");
     }
 
-    /**
-     * Test of getOptions method, of class Categoria.
-     */
-    @Test
-    public void testGetOptions() {
-        System.out.println("getOptions");
-        Categoria instance = new Categoria();
-        ObservableList<String> expResult = null;
-        ObservableList<String> result = instance.getOptions();
-        assertEquals(expResult, result);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
-    }
-
-    /**
-     * Test of setOptions method, of class Categoria.
-     */
-    @Test
-    public void testSetOptions() {
-        System.out.println("setOptions");
-        ObservableList<String> options = null;
-        Categoria instance = new Categoria();
-        instance.setOptions(options);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
-    }
 
     /**
      * Test of llenarSet method, of class Categoria.
@@ -87,8 +61,7 @@ public class CategoriaTest {
         ResultSet rs = null;
         Categoria instance = new Categoria();
         instance.llenarSet(rs);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
+        assertTrue(instance.getOptions().contains(""));
     }
     
 }
