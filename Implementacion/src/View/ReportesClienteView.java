@@ -16,10 +16,15 @@ import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.geometry.Pos;
 import javafx.scene.control.Label;
+import javafx.scene.control.TableCell;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
+import javafx.scene.control.cell.MapValueFactory;
+import javafx.scene.control.cell.TextFieldTableCell;
 import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
+import javafx.util.Callback;
+import javafx.util.StringConverter;
 
 /**
  *
@@ -39,7 +44,9 @@ public class ReportesClienteView {
         Pane.getChildren().add(label);
     }
     
-    public void reportesClientesView(VBox vboton,TableView tv) throws SQLException{
+    public void reportesClientesView(VBox vboton,TableView tv, VBox Pane) throws SQLException{
+        ArrayList<Clientes> list= new ReportesController().BuscaClientes();
+        tv = new TableView(generateDataInMapClientes(list));
         Label lbreporte=new Label("Reportes Clientes");
         lbreporte.setAlignment(Pos.CENTER);
         lbreporte.setUnderline(true);
@@ -48,9 +55,38 @@ public class ReportesClienteView {
         TableColumn<Map, String> direccion = new TableColumn("Direccion");
         TableColumn<Map, String> telefono = new TableColumn("Telefono");
         TableColumn<Map, String> montoPromedioMensual = new TableColumn("Monto promedio mensual del último trimestre");
+        
+        id.setCellValueFactory(new MapValueFactory("Id"));
+        id.setMinWidth(100);
+        nombres.setCellValueFactory(new MapValueFactory("Nombres"));
+        nombres.setMinWidth(100);
+        direccion.setCellValueFactory(new MapValueFactory("Direccion"));
+        direccion.setMinWidth(100);
+        telefono.setCellValueFactory(new MapValueFactory("Telefono"));
+        telefono.setMinWidth(100);
+        montoPromedioMensual.setCellValueFactory(new MapValueFactory("Monto promedio mensual del último trimestre"));
+        montoPromedioMensual.setMinWidth(100);
+        
         tv.getColumns().addAll(id, nombres, direccion, telefono, montoPromedioMensual);
-        ArrayList<Clientes> list= new ReportesController().BuscaClientes();
-        tv = new TableView(generateDataInMapClientes(list));
+        
+        Callback<TableColumn<Map, String>, TableCell<Map, String>>
+            cellFactoryForMap = (TableColumn<Map, String> p) -> 
+                new TextFieldTableCell(new StringConverter() {
+                    @Override
+                        public String toString(Object t) {
+                        return t.toString();
+                    }
+                    @Override
+                    public Object fromString(String string) {
+                        return string;
+                    }
+            });
+        id.setCellFactory(cellFactoryForMap);
+        nombres.setCellFactory(cellFactoryForMap);
+        direccion.setCellFactory(cellFactoryForMap);
+        telefono.setCellFactory(cellFactoryForMap);
+        montoPromedioMensual.setCellFactory(cellFactoryForMap);
+        
         vboton.getChildren().addAll(lbreporte,tv);
         Pane.getChildren().add(vboton);
         

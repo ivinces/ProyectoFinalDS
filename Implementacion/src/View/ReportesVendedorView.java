@@ -45,7 +45,8 @@ public class ReportesVendedorView {
     }
     
     public void reportesVendedorView(VBox vboton,TableView tv, VBox Pane) throws SQLException{
-        tv=new TableView(this.generateDataInMapVendedor(new ReportesController().BuscaVendedor()));
+        ArrayList<iVendedor> list= new ReportesController().BuscaVendedor();
+        tv=new TableView(this.generateDataInMapVendedor(list));
         tv.setEditable(true);
         Label lbreporte=new Label("Reportes Vendores");
         lbreporte.setAlignment(Pos.CENTER);
@@ -82,9 +83,6 @@ public class ReportesVendedorView {
         cantidadVentas.setCellFactory(cellFactoryForMap);
         montoTotalVentas.setCellFactory(cellFactoryForMap);
         
-        
-        ArrayList<iVendedor> list= new ReportesController().BuscaVendedor();
-        tv = new TableView(generateDataInMapVendedor(list));
         vboton.getChildren().addAll(lbreporte,tv);
         Pane.getChildren().add(vboton);
     }

@@ -81,7 +81,7 @@ public class ReportesView {
     }
     
     public void buscar(ActionEvent e, Stage primarystage, VBox vboton) throws SQLException{
-
+        vboton.getChildren().clear();
         String tipoBusqueda=(String)this.cmb.getSelectionModel().getSelectedItem();
         if("Reportes por Ventas Vendedor".equals(tipoBusqueda)){
             ReportesVendedorView rv=new ReportesVendedorView(primarystage);
@@ -89,11 +89,11 @@ public class ReportesView {
         }
         else if("Reportes por Artículos".equals(tipoBusqueda)){
             ReportesArticuloView ra=new ReportesArticuloView(primarystage);
-            ra.reportesArticuloView(vboton, tv);
+            ra.reportesArticuloView(vboton, tv,Pane);
         }
         else if("Reportes por Clientes".equals(tipoBusqueda)){
             ReportesClienteView rc=new ReportesClienteView(primarystage);
-            rc.reportesClientesView(vboton, tv);
+            rc.reportesClientesView(vboton, tv,Pane);
         }
     }
     

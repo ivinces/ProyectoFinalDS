@@ -28,49 +28,41 @@ public class ReportesController {
         
     public ArrayList<Articulo> BuscaArticulos() throws SQLException {
         ArrayList<Articulo> larticulo=new ArrayList<>();
-        pdb.conectar();
-        String query = "SELECT Articulos.IDArticulos, Articulos.Nombre, COUNT(Ventas.IDArticulos) AS CantidadVentas, SUM(Articulos.Precio) AS VentasTotalesUSD FROM Lavadoras, Refrigeradoras, Cocinas, Ventas, Articulos WHERE Articulos.IDArticulos=Refrigeradoras.IDArticulos OR Articulos.IDArticulos=Lavadoras.IDArticulos OR Articulos.IDArticulos=Cocinas.IDArticulos AND Articulos.IDArticulos=Ventas.IDArticulos GROUP BY Articulos.IDArticulos";
+        String query = "SELECT Articulos.IDArticulos, Articulos.Color, Articulos.Nombre, Articulos.Marca, Articulos.Precio, Articulos.modelo, COUNT(Ventas.IDArticulos) AS CantidadVentas, SUM(Articulos.Precio) AS VentasTotalesUSD FROM Lavadoras, Refrigeradoras, Cocinas, Ventas, Articulos WHERE Articulos.IDArticulos=Refrigeradoras.IDArticulos OR Articulos.IDArticulos=Lavadoras.IDArticulos OR Articulos.IDArticulos=Cocinas.IDArticulos AND Articulos.IDArticulos=Ventas.IDArticulos GROUP BY Articulos.IDArticulos";
         ResultSet res= pdb.obtenerSet(query);
         Articulo art;
-            while (res.next()){
+            /*while (res.next()){
                 switch (res.getString("Nombre")) {
                     case "Lavadora":
-                        art=new Lavadora(res.getString("IDArticulos"), res.getString("Nombre"));
+                        art=new Lavadora(res.getString("IDArticulos"), res.getString("Color"), res.getString("Nombre"), res.getString("Marca"), Float.parseFloat(res.getString("Precio")), res.getString("Modelo"));
                         larticulo.add(art);
                         break;
                     case "Cocina":
-                        art=new Cocina(res.getString("IDArticulos"), res.getString("Nombre"));
+                        art=new Cocina(res.getString("IDArticulos"), res.getString("Color"), res.getString("Nombre"), res.getString("Marca"), Float.parseFloat(res.getString("Precio")), res.getString("Modelo"));
                         larticulo.add(art);
                         break;
                     case "Refrigeradora":
-                        art=new Refrigeradora(res.getString("IDArticulos"), res.getString("Nombre"));
+                        art=new Refrigeradora(res.getString("IDArticulos"), res.getString("Color"), res.getString("Nombre"), res.getString("Marca"), Float.parseFloat(res.getString("Precio")), res.getString("Modelo"));
                         larticulo.add(art);
                         break;
                     default:
                         break;
                 }   
-            }
+            }*/
         return larticulo;
     }
     
     public ArrayList<Ventas> BuscaVentas() throws SQLException {
         ArrayList<Ventas> lventas=new ArrayList<>();
-        Date fecha=new Date(new Date().getTime()+TimeUnit.DAYS.toMillis(7));
-        Format formatter = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
-        String fechaQ=formatter.format(fecha);
-        String fechaAct=formatter.format(new Date());
         String query = "SELECT Ventas.PrecioFinal, Ventas.Cantidad, Articulos.Nombre, Ventas.Fecha  FROM Ventas, Articulos WHERE Articulos.IDArticulos=Ventas.IDArticulos";
         ResultSet res= pdb.obtenerSet(query);
-        Articulo art;
-        Date fechaVent=new Date(res.getString("Fecha"));
-        Ventas vent=new Ventas(res.getString("Nombre"),Integer.parseInt(res.getString("Cantidad")),fechaVent,Float.parseFloat(res.getString("PrecioFinal")));
+        Ventas vent=new Ventas(res.getString("Nombre"),Integer.parseInt(res.getString("Cantidad")),Float.parseFloat(res.getString("PrecioFinal")));
         lventas.add(vent);
         return lventas;
     }
     
     public ArrayList<iVendedor> BuscaVendedor() throws SQLException {
         ArrayList<iVendedor> lvendedor=new ArrayList<>();
-        //pdb.conectar();
         String query = "SELECT Vendedor.IDVendedor, Vendedor.Nombre, Vendedor.Apellido, COUNT(Ventas.IDVentas) AS CantidadVentas, SUM(Articulos.Precio) AS VentasTotalesUSD FROM Vendedor, Ventas, Articulos WHERE Vendedor.IDVendedor=Ventas.IDVendedor AND Articulos.IDArticulos=Ventas.IDArticulos GROUP BY Vendedor.IDVendedor";
         ResultSet res= pdb.obtenerSet(query);
         while (res.next()){
@@ -82,10 +74,6 @@ public class ReportesController {
     
     public ArrayList<Clientes> BuscaClientes() throws SQLException {
         ArrayList<Clientes> lClientes=new ArrayList<>();
-        Date fecha=new Date(new Date().getTime()-TimeUnit.DAYS.toMillis(90));
-        Format formatter = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
-        String fechaQ=formatter.format(fecha);
-        String fechaAct=formatter.format(new Date());
         String query = "SELECT Cliente.IDCliente, Cliente.Nombre, Cliente.Apellido, Cliente.Direccion, Cliente.Telefono, AVG(Articulos.Precio) AS MontoPromedio FROM Cliente, Ventas, Articulos WHERE Articulos.IDArticulos=Ventas.IDArticulos GROUP BY Cliente.IDCliente";
         ResultSet res= pdb.obtenerSet(query);
         while (res.next()){
